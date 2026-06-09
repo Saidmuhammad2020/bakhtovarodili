@@ -17,7 +17,7 @@ const CONFIG = {
   // Канонический адрес визитки — используется для QR и vCard,
   // если страница открыта локально (file://). При хостинге QR
   // автоматически подставляет реальный адрес страницы.
-  url:       "https://saidmuhammad2020.github.io/visitka2/"
+  url:       "https://saidmuhammad2020.github.io/bakhtovarodili/"
 };
 
 const QR_QUIET = 4;          // «тихая зона» вокруг кода (модулей)

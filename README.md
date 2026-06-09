@@ -14,34 +14,31 @@
 1. **Быстрый просмотр** — откройте файл `bakhtovar-odili.html`
 2. **Полная версия** — откройте `index.html` (лучше выглядит логотип)
 
-## Публикация на GitHub Pages (visitka2)
+## Публикация на GitHub Pages
 
-Репозиторий уже подготовлен локально.
+Репозиторий подготовлен для **https://github.com/Saidmuhammad2020/bakhtovarodili**
 
 **Шаги:**
 
-1. Создайте репозиторий на GitHub:
-   - Перейдите: https://github.com/new
-   - Название: **точно `visitka2`**
-   - Public (рекомендуется)
-   - **НЕ** ставьте галочки "Add a README", .gitignore или license (у нас уже есть локально)
+1. Убедись, что репозиторий `bakhtovarodili` создан на GitHub:
+   - https://github.com/Saidmuhammad2020/bakhtovarodili
 
-2. В этой папке выполните:
+2. В этой папке выполни:
    ```
    git push -u origin main
    ```
-   (при первом запуске Windows попросит авторизацию через браузер — войдите под аккаунтом saidmuhammad2020)
+   (при первом запуске Windows попросит авторизацию через браузер — войди под аккаунтом Saidmuhammad2020)
 
-3. Включите GitHub Pages:
-   - Откройте репозиторий → Settings → Pages
+3. Включи GitHub Pages:
+   - Открой репозиторий → **Settings → Pages**
    - Source: **Deploy from a branch**
    - Branch: `main`, Folder: `/ (root)`
    - Save
 
-4. Через 1–2 минуты сайт будет доступен:
-   **https://saidmuhammad2020.github.io/visitka2**
+4. Через 1–2 минуты сайт будет доступен по адресу:
+   **https://saidmuhammad2020.github.io/bakhtovarodili**
 
-Если `git push` ругается на "Repository not found" — сначала создайте репозиторий на шаге 1.
+Если при пуше ошибка "Repository not found" — убедись, что репозиторий `bakhtovarodili` уже создан на твоём аккаунте.
 
 ## Контакты
 
