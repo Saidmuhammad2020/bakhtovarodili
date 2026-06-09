@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FintechStan">
+  <defs>
+    <linearGradient id="fvBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E4476"/>
+      <stop offset="1" stop-color="#16335C"/>
+    </linearGradient>
+    <linearGradient id="fvBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7CB8EC"/>
+      <stop offset="1" stop-color="#2E7CC4"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#fvBg)"/>
+  <path d="M18 46 L36 16 L52 48" fill="none" stroke="#9498A0"
+        stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 48 L27 27 L42 48" fill="none" stroke="url(#fvBlue)"
+        stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
