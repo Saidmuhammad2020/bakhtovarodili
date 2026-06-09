@@ -14,12 +14,34 @@
 1. **Быстрый просмотр** — откройте файл `bakhtovar-odili.html`
 2. **Полная версия** — откройте `index.html` (лучше выглядит логотип)
 
-## Публикация на GitHub Pages
+## Публикация на GitHub Pages (visitka2)
 
-1. Репозиторий: `saidmuhammad2020/visitka2`
-2. Скопируйте содержимое этой папки в корень репозитория
-3. Включите GitHub Pages: Settings → Pages → Source: "Deploy from a branch" → Branch: `main` / Folder: `/ (root)`
-4. Сайт будет доступен по адресу `https://saidmuhammad2020.github.io/visitka2`
+Репозиторий уже подготовлен локально.
+
+**Шаги:**
+
+1. Создайте репозиторий на GitHub:
+   - Перейдите: https://github.com/new
+   - Название: **точно `visitka2`**
+   - Public (рекомендуется)
+   - **НЕ** ставьте галочки "Add a README", .gitignore или license (у нас уже есть локально)
+
+2. В этой папке выполните:
+   ```
+   git push -u origin main
+   ```
+   (при первом запуске Windows попросит авторизацию через браузер — войдите под аккаунтом saidmuhammad2020)
+
+3. Включите GitHub Pages:
+   - Откройте репозиторий → Settings → Pages
+   - Source: **Deploy from a branch**
+   - Branch: `main`, Folder: `/ (root)`
+   - Save
+
+4. Через 1–2 минуты сайт будет доступен:
+   **https://saidmuhammad2020.github.io/visitka2**
+
+Если `git push` ругается на "Repository not found" — сначала создайте репозиторий на шаге 1.
 
 ## Контакты
 
