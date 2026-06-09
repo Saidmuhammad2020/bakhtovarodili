@@ -137,21 +137,11 @@
     }
     .brand { display: flex; align-items: center; gap: 10px; }
     .brand__mark {
-      height: 52px;
+      height: 64px;
       width: auto;
-      display: flex;
-      align-items: center;
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 21px;
-      letter-spacing: 2.5px;
-      color: var(--navy);
-      background: linear-gradient(90deg, var(--navy), var(--azure));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      gap: 8px;
+      mix-blend-mode: multiply;
+      border-radius: 6px;
     }
-    .brand__mark svg { width: 28px; height: 28px; flex: none; -webkit-text-fill-color: currentColor; }
 
     .status {
       display: inline-flex;
@@ -200,21 +190,13 @@
       border-radius: 50%;
       background: var(--card);
     }
-    .avatar__initials {
+    .avatar__img {
       position: relative;
       z-index: 1;
       width: 168px; height: 168px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #E8F1FA 0%, #D6E6F7 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 64px;
-      color: var(--navy);
+      object-fit: cover;
       box-shadow: var(--shadow-sm);
-      letter-spacing: -1px;
     }
     .identity__name {
       font-family: var(--font-head);
@@ -490,12 +472,7 @@
     <!-- Header -->
     <header class="card__head reveal">
       <div class="brand">
-        <span class="brand__mark" aria-label="FintechStan">
-          <svg width="28" height="28" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path d="M8 38 L18 8 L30 40 L40 12" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          FINTECHSTAN
-        </span>
+        <img class="brand__mark" src="assets/img/Logo3.jpg" alt="FintechStan" width="180" height="64">
       </div>
       <span class="status">
         <span class="status__dot" aria-hidden="true"></span>
@@ -507,7 +484,7 @@
     <section class="identity">
       <div class="avatar reveal">
         <span class="avatar__ring" aria-hidden="true"></span>
-        <div class="avatar__initials" aria-label="Бахтовар Одили">БО</div>
+        <img class="avatar__img" src="assets/img/Бахтовар.jpg" alt="Бахтовар Одили" width="168" height="168">
       </div>
 
       <h1 class="identity__name reveal">Бахтовар Одили</h1>
