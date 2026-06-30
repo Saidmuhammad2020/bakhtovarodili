@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- ===== SEO (ТЗ §12) — title/description проставляются i18n ===== -->
   <title>Пахлавон — охранное агентство в Душанбе</title>
   <meta name="description" content="Охранное агентство «Пахлавон» в Душанбе: видеонаблюдение с глубоким анализом, СКУД, пожарная сигнализация, пультовая и физическая охрана.">
   <meta name="theme-color" content="#1A1A1A">
@@ -12,33 +11,28 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.pahlavon.tj/">
 
-  <!-- hreflang (ТЗ §4.3) -->
   <link rel="alternate" hreflang="ru" href="https://www.pahlavon.tj/?lang=ru">
   <link rel="alternate" hreflang="tg" href="https://www.pahlavon.tj/?lang=tg">
   <link rel="alternate" hreflang="en" href="https://www.pahlavon.tj/?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://www.pahlavon.tj/">
 
-  <!-- geo -->
   <meta name="geo.region" content="TJ"><meta name="geo.placename" content="Душанбе">
 
-  <!-- Open Graph / Telegram (ТЗ §9.3) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pahlavon Security Agency">
   <meta property="og:title" content="Пахлавон — охранное агентство в Душанбе">
   <meta property="og:description" content="Технологичная защита бизнеса и дома: видеонаблюдение с глубоким анализом, СКУД, охрана и реагирование 24/7.">
   <meta property="og:url" content="https://www.pahlavon.tj/">
-  <meta property="og:image" content="https://www.pahlavon.tj/assets/img/og-cover.svg">
+  <meta property="og:image" content="https://www.pahlavon.tj/assets/img/og-cover.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <!-- Шрифт Nunito Sans с поднаборами латиница+кириллица, font-display: swap (ТЗ §3.2, §11) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap&subset=latin,cyrillic,cyrillic-ext" rel="stylesheet">
 
-  <!-- Анти-FOUC: тема применяется до отрисовки (ТЗ §6.1) -->
   <script>
     (function () {
       try {
@@ -60,7 +54,6 @@
 
   <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- Структурированные данные LocalBusiness / SecurityService (ТЗ §12) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,7 +63,7 @@
     "url": "https://www.pahlavon.tj/",
     "telephone": "+992981113363",
     "email": "sales@pahlavon.tj",
-    "image": "https://www.pahlavon.tj/assets/img/og-cover.svg",
+    "image": "https://www.pahlavon.tj/assets/img/og-cover.png",
     "address": { "@type": "PostalAddress", "addressLocality": "Душанбе", "addressCountry": "TJ" },
     "areaServed": "Dushanbe, Tajikistan",
     "openingHours": "Mo-Sa 09:00-18:00",
@@ -82,18 +75,29 @@
 <body>
   <a class="skip-link" href="#main" data-i18n="nav.services">К содержанию</a>
 
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere__glow atmosphere__glow--gold"></div>
+    <div class="atmosphere__glow atmosphere__glow--cool"></div>
+    <div class="atmosphere__tri"></div>
+    <div class="atmosphere__grid"></div>
+    <div class="atmosphere__rings"></div>
+  </div>
+
   <!-- ===================== ШАПКА ===================== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#" class="logo" aria-label="Pahlavon" id="logo"></a>
+      <a href="index.html" class="logo-link" aria-label="Pahlavon">
+        <img class="logo-img logo-img--dark" src="assets/img/logo-cream.png" alt="PAHLAVON">
+        <img class="logo-img logo-img--light" src="assets/img/logo-graphite.png" alt="PAHLAVON">
+      </a>
 
       <nav class="nav" aria-label="Основная навигация">
-        <a href="#services" data-i18n="nav.services">Услуги</a>
-        <a href="#about" data-i18n="nav.about">О нас</a>
-        <a href="#advantages" data-i18n="nav.advantages">Преимущества</a>
-        <a href="#cases" data-i18n="nav.cases">Кейсы</a>
-        <a href="#careers" data-i18n="nav.careers">Карьера</a>
-        <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+        <a href="services.html" data-i18n="nav.services">Услуги</a>
+        <a href="about.html" data-i18n="nav.about">О нас</a>
+        <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+        <a href="cases.html" data-i18n="nav.cases">Кейсы</a>
+        <a href="careers.html" data-i18n="nav.careers">Карьера</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
       </nav>
 
       <div class="header__tools">
@@ -106,7 +110,7 @@
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
         </button>
-        <a href="#contacts" class="btn btn--primary btn--sm" data-i18n="common.requestAudit">Бесплатный аудит</a>
+        <a href="contacts.html" class="btn btn--primary btn--sm" data-i18n="common.requestAudit">Бесплатный аудит</a>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
@@ -114,18 +118,16 @@
     </div>
   </header>
 
-  <!-- Мобильное меню -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <button class="icon-btn mobile-menu__close" id="menuClose" aria-label="Закрыть">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-    <a href="#services" data-i18n="nav.services">Услуги</a>
-    <a href="#about" data-i18n="nav.about">О нас</a>
-    <a href="#advantages" data-i18n="nav.advantages">Преимущества</a>
-    <a href="#process" data-i18n="nav.process">Как работаем</a>
-    <a href="#cases" data-i18n="nav.cases">Кейсы</a>
-    <a href="#careers" data-i18n="nav.careers">Карьера</a>
-    <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+    <a href="services.html" data-i18n="nav.services">Услуги</a>
+    <a href="about.html" data-i18n="nav.about">О нас</a>
+    <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+    <a href="cases.html" data-i18n="nav.cases">Кейсы</a>
+    <a href="careers.html" data-i18n="nav.careers">Карьера</a>
+    <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
   </div>
 
   <main id="main">
@@ -138,15 +140,15 @@
           <h1 data-i18n-html="hero.title">Сосредоточьтесь на главном, о безопасности позаботимся мы!</h1>
           <p class="hero__slogan" data-i18n="hero.slogan"></p>
           <div class="hero__actions">
-            <a href="#contacts" class="btn btn--primary" data-i18n="common.requestAudit">Бесплатный аудит</a>
-            <a href="#services" class="btn btn--ghost" data-i18n="common.ourServices">Наши услуги</a>
+            <a href="contacts.html" class="btn btn--primary" data-i18n="common.requestAudit">Бесплатный аудит</a>
+            <a href="services.html" class="btn btn--ghost" data-i18n="common.ourServices">Наши услуги</a>
           </div>
         </div>
         <div class="hero__stats reveal" id="heroStats"></div>
       </div>
     </section>
 
-    <!-- ===================== УСЛУГИ ===================== -->
+    <!-- ===================== УСЛУГИ (тизер) ===================== -->
     <section class="section pattern-bg" id="services">
       <div class="container">
         <div class="section-head center reveal">
@@ -155,24 +157,31 @@
           <p data-i18n="services.subtitle"></p>
         </div>
         <div class="services-grid" id="servicesGrid"></div>
+        <div class="section-foot reveal">
+          <a href="services.html" class="btn btn--ghost" data-i18n="common.allServices">Все услуги</a>
+        </div>
       </div>
     </section>
 
-    <!-- ===================== О КОМПАНИИ ===================== -->
-    <section class="section section--deep" id="about">
+    <!-- ===================== О КОМПАНИИ (тизер) ===================== -->
+    <section class="section section--surface" id="about">
       <div class="container about-grid">
         <div class="reveal">
           <span class="label" data-i18n="about.label">О компании</span>
           <h2 data-i18n="about.title"></h2>
           <p data-i18n="about.p1"></p>
-          <p data-i18n="about.p2"></p>
           <div class="counters" id="aboutCounters"></div>
+          <div style="margin-top:2rem">
+            <a href="about.html" class="btn btn--ghost" data-i18n="common.more">Подробнее</a>
+          </div>
         </div>
-        <div class="about-emblem reveal" id="aboutEmblem" aria-hidden="true"></div>
+        <div class="about-emblem reveal">
+          <img src="assets/img/shield-gold.png" alt="" aria-hidden="true" style="filter:drop-shadow(0 20px 40px rgba(201,169,97,.25))">
+        </div>
       </div>
     </section>
 
-    <!-- ===================== ПРЕИМУЩЕСТВА ===================== -->
+    <!-- ===================== ПРЕИМУЩЕСТВА (тизер) ===================== -->
     <section class="section" id="advantages">
       <div class="container">
         <div class="section-head center reveal">
@@ -180,6 +189,9 @@
           <h2 data-i18n="advantages.title"></h2>
         </div>
         <div class="feature-grid" id="featureGrid"></div>
+        <div class="section-foot reveal">
+          <a href="advantages.html" class="btn btn--ghost" data-i18n="common.more">Подробнее</a>
+        </div>
       </div>
     </section>
 
@@ -194,7 +206,7 @@
       </div>
     </section>
 
-    <!-- ===================== КЕЙСЫ ===================== -->
+    <!-- ===================== КЕЙСЫ (тизер) ===================== -->
     <section class="section" id="cases">
       <div class="container">
         <div class="section-head center reveal">
@@ -202,11 +214,14 @@
           <h2 data-i18n="cases.title"></h2>
         </div>
         <div class="cases-grid" id="casesGrid"></div>
+        <div class="section-foot reveal">
+          <a href="cases.html" class="btn btn--ghost" data-i18n="common.allCases">Все кейсы</a>
+        </div>
       </div>
     </section>
 
     <!-- ===================== ПАРТНЁРЫ ===================== -->
-    <section class="section section--deep" id="partners">
+    <section class="section section--surface" id="partners">
       <div class="container">
         <div class="section-head center reveal">
           <span class="label" data-i18n="partners.label"></span>
@@ -235,7 +250,7 @@
     </section>
 
     <!-- ===================== КАЛЬКУЛЯТОР ПОТЕРЬ ===================== -->
-    <section class="section section--deep" id="calc">
+    <section class="section section--surface" id="calc">
       <div class="container">
         <div class="section-head center reveal">
           <span class="label" data-i18n="calc.label"></span>
@@ -275,109 +290,13 @@
       </div>
     </section>
 
-    <!-- ===================== ВАКАНСИИ / КАРЬЕРА ===================== -->
-    <section class="section section--surface" id="careers">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="label" data-i18n="careers.label"></span>
-          <h2 data-i18n="careers.title"></h2>
-          <p data-i18n="careers.subtitle"></p>
-          <p class="careers-count"><b id="careersCount">0</b> <span data-i18n="careers.openCount"></span></p>
-        </div>
-        <div class="vacancy-grid" id="careersGrid"></div>
-        <div class="careers-cta reveal">
-          <button class="btn btn--ghost" id="sendResumeBtn" data-i18n="careers.sendResume"></button>
-        </div>
-      </div>
-    </section>
-
     <!-- ===================== CTA ===================== -->
     <section class="section cta-band pattern-bg">
       <div class="container reveal">
         <h2 data-i18n="cta.title"></h2>
         <p data-i18n="cta.text"></p>
-        <a href="#contacts" class="btn btn--primary" data-i18n="cta.btn"></a>
-      </div>
-    </section>
-
-    <!-- ===================== КОНТАКТЫ + ФОРМА ===================== -->
-    <section class="section section--deep" id="contacts">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="label" data-i18n="contacts.label"></span>
-          <h2 data-i18n="contacts.title"></h2>
-          <p data-i18n="contacts.subtitle"></p>
-        </div>
-        <div class="contact-grid">
-          <!-- Форма заявки на аудит (ТЗ §9.1) -->
-          <div class="form-card reveal">
-            <form id="auditForm" novalidate>
-              <div class="field">
-                <label for="fName" data-i18n="contacts.form.name"></label>
-                <input type="text" id="fName" name="name" autocomplete="name" required>
-                <span class="field__err" data-i18n="contacts.form.errName"></span>
-              </div>
-              <div class="field">
-                <label for="fPhone" data-i18n="contacts.form.phone"></label>
-                <input type="tel" id="fPhone" name="phone" inputmode="tel" placeholder="+992 ___ __ __ __" required>
-                <span class="field__err" data-i18n="contacts.form.errPhone"></span>
-              </div>
-              <div class="field">
-                <label for="fType" data-i18n="contacts.form.type"></label>
-                <select id="fType" name="type"></select>
-              </div>
-              <div class="field">
-                <label for="fComment" data-i18n="contacts.form.comment"></label>
-                <textarea id="fComment" name="comment"></textarea>
-              </div>
-              <!-- honeypot (ТЗ §9.1) -->
-              <div class="hp" aria-hidden="true">
-                <label>Не заполняйте<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-              </div>
-              <div class="field">
-                <label class="consent">
-                  <input type="checkbox" id="fConsent" name="consent" required>
-                  <span><span data-i18n="contacts.form.consent"></span> (<a href="privacy.html" target="_blank" data-i18n="footer.privacy"></a>)</span>
-                </label>
-                <span class="field__err" data-i18n="contacts.form.errConsent"></span>
-              </div>
-              <button type="submit" class="btn btn--primary btn--block" data-i18n="contacts.form.submit"></button>
-            </form>
-            <div class="form-success" id="formSuccess">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              <h3 data-i18n="contacts.form.successTitle"></h3>
-              <p data-i18n="contacts.form.successText"></p>
-            </div>
-          </div>
-
-          <!-- Контактная информация -->
-          <div class="contact-info reveal">
-            <div class="contact-line">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-              <div><b data-i18n="contacts.info.phoneLabel"></b><a href="tel:+992981113363" data-contact="phone" data-contact-text="phone">(+992) 98-111-3363</a></div>
-            </div>
-            <div class="contact-line">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <div><b data-i18n="contacts.info.emailLabel"></b><a href="mailto:sales@pahlavon.tj" data-contact="email" data-contact-text="email">sales@pahlavon.tj</a></div>
-            </div>
-            <div class="contact-line">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <div><b data-i18n="contacts.info.addressLabel"></b><span data-i18n="contacts.info.address"></span></div>
-            </div>
-            <div class="contact-line">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              <div><b data-i18n="contacts.info.hoursLabel"></b><span data-i18n="contacts.info.hours"></span></div>
-            </div>
-            <div class="contact-line">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 2.8 11.6c-1 .4-1 1.4 0 1.7l4.8 1.5 1.8 5.8c.3.7 1.1.9 1.6.4l2.7-2.6 5 3.7c.7.5 1.7.1 1.9-.8l3.1-15.2c.2-1-.7-1.9-1.6-1.5z"/></svg>
-              <div><b data-i18n="contacts.info.telegram"></b><a href="https://t.me/pahlavonagency" target="_blank" rel="noopener" data-contact="telegram" data-contact-text="telegram">@pahlavonagency</a></div>
-            </div>
-            <div class="map">
-              <iframe title="Pahlavon — Dushanbe" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=68.74%2C38.53%2C68.82%2C38.59&layer=mapnik&marker=38.5598%2C68.7870"></iframe>
-            </div>
-          </div>
-        </div>
+        <a href="contacts.html" class="btn btn--primary" data-i18n="cta.btn"></a>
+        <a href="careers.html" class="btn btn--ghost" data-i18n="nav.careers"></a>
       </div>
     </section>
   </main>
@@ -387,7 +306,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer__brand">
-          <a href="#" class="logo" id="footerLogo" aria-label="Pahlavon"></a>
+          <a href="index.html" class="logo-link logo-link--lg" aria-label="Pahlavon">
+            <img class="logo-img logo-img--dark" src="assets/img/logo-cream.png" alt="PAHLAVON">
+            <img class="logo-img logo-img--light" src="assets/img/logo-graphite.png" alt="PAHLAVON">
+          </a>
           <p data-i18n="footer.tagline"></p>
           <div class="socials">
             <a class="icon-btn" href="https://t.me/pahlavonagency" target="_blank" rel="noopener" aria-label="Telegram" data-contact="telegram">
@@ -401,12 +323,12 @@
         <div>
           <h4 data-i18n="footer.navTitle"></h4>
           <div class="footer-links">
-            <a href="#services" data-i18n="nav.services"></a>
-            <a href="#about" data-i18n="nav.about"></a>
-            <a href="#advantages" data-i18n="nav.advantages"></a>
-            <a href="#cases" data-i18n="nav.cases"></a>
-            <a href="#careers" data-i18n="nav.careers"></a>
-            <a href="#contacts" data-i18n="nav.contacts"></a>
+            <a href="services.html" data-i18n="nav.services"></a>
+            <a href="about.html" data-i18n="nav.about"></a>
+            <a href="advantages.html" data-i18n="nav.advantages"></a>
+            <a href="cases.html" data-i18n="nav.cases"></a>
+            <a href="careers.html" data-i18n="nav.careers"></a>
+            <a href="contacts.html" data-i18n="nav.contacts"></a>
           </div>
         </div>
         <div>
@@ -426,7 +348,6 @@
     </div>
   </footer>
 
-  <!-- Плавающие кнопки (ТЗ §5.3, §9.2) -->
   <div class="fab">
     <a href="tel:+992981113363" aria-label="Позвонить" data-contact="phone">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
@@ -442,55 +363,13 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
-  <!-- Модальное окно отклика на вакансию -->
-  <div class="modal" id="applyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__panel">
-      <button class="icon-btn modal__close" data-close aria-label="Закрыть">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <h3 id="applyTitle" data-i18n="careers.apply.title"></h3>
-      <form id="applyForm" novalidate>
-        <div class="field">
-          <label for="aPosition" data-i18n="careers.apply.position"></label>
-          <input type="text" id="aPosition" name="position" readonly>
-        </div>
-        <div class="field">
-          <label for="aName" data-i18n="careers.apply.name"></label>
-          <input type="text" id="aName" name="name" autocomplete="name" required>
-          <span class="field__err" data-i18n="careers.apply.errName"></span>
-        </div>
-        <div class="field">
-          <label for="aPhone" data-i18n="careers.apply.phone"></label>
-          <input type="tel" id="aPhone" name="phone" inputmode="tel" placeholder="+992 ___ __ __ __" required>
-          <span class="field__err" data-i18n="careers.apply.errPhone"></span>
-        </div>
-        <div class="field">
-          <label for="aMessage" data-i18n="careers.apply.message"></label>
-          <textarea id="aMessage" name="message"></textarea>
-        </div>
-        <div class="field">
-          <label class="consent">
-            <input type="checkbox" id="aConsent" name="consent" required>
-            <span><span data-i18n="careers.apply.consent"></span> (<a href="privacy.html" target="_blank" data-i18n="footer.privacy"></a>)</span>
-          </label>
-          <span class="field__err" data-i18n="careers.apply.errConsent"></span>
-        </div>
-        <button type="submit" class="btn btn--primary btn--block" data-i18n="careers.apply.submit"></button>
-      </form>
-      <div class="form-success" id="applySuccess">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-        <h3 data-i18n="careers.apply.successTitle"></h3>
-        <p data-i18n="careers.apply.successText"></p>
-      </div>
-    </div>
-  </div>
-
   <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/i18n-pages.js"></script>
   <script src="assets/js/content.js"></script>
   <script src="assets/js/vacancies.js"></script>
   <script src="assets/js/api.js"></script>
   <script src="assets/js/animations.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/page-home.js"></script>
 </body>
 </html>

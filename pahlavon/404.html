@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 — страница не найдена | Пахлавон</title>
   <meta name="robots" content="noindex">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>(function(){try{var t=localStorage.getItem("pahlavon-theme")||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 </head>
 <body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere__glow atmosphere__glow--gold"></div>
+    <div class="atmosphere__glow atmosphere__glow--cool"></div>
+    <div class="atmosphere__tri"></div>
+    <div class="atmosphere__grid"></div>
+  </div>
   <main class="hero pattern-bg" style="text-align:center">
     <div class="container" style="position:relative;z-index:2">
+      <a href="index.html" class="logo-link" aria-label="Pahlavon" style="justify-content:center;margin-bottom:2.5rem">
+        <img class="logo-img logo-img--dark" src="assets/img/logo-cream.png" alt="PAHLAVON">
+        <img class="logo-img logo-img--light" src="assets/img/logo-graphite.png" alt="PAHLAVON">
+      </a>
       <div style="font-size:clamp(5rem,18vw,11rem);font-weight:800;line-height:1;color:var(--accent-text)">404</div>
       <h1 style="font-size:clamp(1.4rem,4vw,2rem)">Страница под надёжной охраной не найдена</h1>
       <p style="color:var(--text-muted);max-width:480px;margin:1rem auto 2rem">Похоже, этой страницы не существует или она была перемещена. Вернитесь на главную — там вся защита на месте.</p>

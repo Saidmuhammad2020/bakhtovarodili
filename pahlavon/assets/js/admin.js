@@ -27,11 +27,6 @@
   function API() { return window.PahlavonAPI && window.PahlavonAPI.enabled(); }
   function apiErr(e) { alert("Ошибка сервера: " + ((e && e.message) || e)); }
 
-  /* ---------- Эмблемы ---------- */
-  if (window.PAHLAVON_EMBLEM) {
-    $("loginEmblem").outerHTML = window.PAHLAVON_EMBLEM().replace("<svg ", '<svg class="emb" ');
-    $("headEmblem").outerHTML = window.PAHLAVON_EMBLEM().replace("<svg ", '<svg id="headEmblem" style="width:30px;height:30px" ');
-  }
 
   /* ---------- Тема ---------- */
   $("themeToggle").addEventListener("click", function () {
@@ -269,13 +264,24 @@
   /* ================= КОНТЕНТ САЙТА ================= */
   var EDIT_LANG = "ru";
   var SECTION_NAMES = {
-    meta: "SEO / мета-теги", nav: "Навигация", common: "Общие кнопки",
+    meta: "SEO / мета-теги (главная)", nav: "Навигация", common: "Общие кнопки",
     hero: "Главный экран (Hero)", services: "Услуги", about: "О компании",
     advantages: "Преимущества", process: "Как мы работаем", cases: "Кейсы",
     partners: "Партнёры", reviews: "Отзывы", calc: "Калькулятор потерь",
     faq: "Вопросы и ответы (FAQ)", cta: "Призыв к действию (CTA)",
     careers: "Карьера / Вакансии", contacts: "Контакты и форма",
     footer: "Подвал", fab: "Плавающие кнопки связи",
+  };
+  // Подписи для вложенных групп (вторая вложенность — отдельные страницы услуг и т.п.)
+  var SUBSECTION_NAMES = {
+    items: "Карточки на главной (тизеры)", pages: "Отдельные страницы услуг",
+    video: "Видеонаблюдение", access: "СКУД", fire: "Пожарная сигнализация",
+    monitoring: "Пультовая охрана", guard: "Физическая охрана", gps: "GPS-мониторинг",
+    service: "Диагностика и ремонт", events: "Безопасность мероприятий",
+    story: "Наша история", mission: "Миссия", values: "Принципы работы",
+    intro: "Вступление", hero: "Заголовок страницы", culture: "Что мы предлагаем",
+    form: "Форма заявки", info: "Контактная информация",
+    employmentTypes: "Типы занятости", apply: "Форма отклика на вакансию",
   };
 
   function walkLeaves(baseNode, effNode, prefix, cb) {
@@ -287,6 +293,12 @@
       Object.keys(baseNode).forEach(function (k) { walkLeaves(baseNode[k], effNode ? effNode[k] : undefined, prefix ? prefix + "." + k : k, cb); });
     }
   }
+  function countLeaves(node) {
+    if (typeof node === "string") return 1;
+    if (Array.isArray(node)) return node.reduce(function (s, v) { return s + countLeaves(v); }, 0);
+    if (node && typeof node === "object") return Object.keys(node).reduce(function (s, k) { return s + countLeaves(node[k]); }, 0);
+    return 0;
+  }
 
   function fieldRow(path, val, baseVal) {
     var long = val.length > 60 || /\n/.test(val);
@@ -297,18 +309,48 @@
     return '<div class="crow' + (changed ? " changed" : "") + '"><label>' + esc(path) + "</label>" + ctrl + "</div>";
   }
 
+  // Большие разделы (например «Услуги» с 8 отдельными страницами) дробятся на
+  // вложенные группы, чтобы не превращаться в один гигантский список полей.
+  function renderGroup(baseNode, effNode, prefix, label, depth) {
+    var leafCount = countLeaves(baseNode);
+    var isObj = baseNode && typeof baseNode === "object" && !Array.isArray(baseNode);
+    var shouldNest = depth < 2 && isObj && leafCount > 12 && Object.keys(baseNode).some(function (k) {
+      var v = baseNode[k];
+      return v && typeof v === "object" && !Array.isArray(v) && countLeaves(v) > 6;
+    });
+    var inner;
+    if (shouldNest) {
+      // Простые поля (не «крупные» объекты) показываются сразу, без лишнего
+      // вложенного аккордеона на одно поле; крупные объекты сворачиваются.
+      var flatRows = "", nestedHtml = "";
+      Object.keys(baseNode).forEach(function (k) {
+        var childBase = baseNode[k], childEff = effNode ? effNode[k] : undefined;
+        var childLeaf = countLeaves(childBase);
+        if (!childLeaf) return;
+        var isChildObj = childBase && typeof childBase === "object" && !Array.isArray(childBase);
+        if (isChildObj && childLeaf > 6) {
+          nestedHtml += renderGroup(childBase, childEff, prefix + "." + k, SUBSECTION_NAMES[k] || k, depth + 1);
+        } else {
+          walkLeaves(childBase, childEff, prefix + "." + k, function (path, bv, ev) { flatRows += fieldRow(path, ev, bv); });
+        }
+      });
+      inner = flatRows + nestedHtml;
+    } else {
+      var rows2 = "";
+      walkLeaves(baseNode, effNode, prefix, function (path, bv, ev) { rows2 += fieldRow(path, ev, bv); });
+      inner = rows2;
+    }
+    return '<details class="csec' + (depth > 0 ? " csec--nested" : "") + '"><summary>' + esc(label) +
+      '<span class="cnt">' + leafCount + " полей</span></summary><div class=\"cfields\">" + inner + "</div></details>";
+  }
+
   function buildContentEditor() {
     var lang = EDIT_LANG;
     var base = window.BASE_LOCALES[lang];
     var eff = window.LOCALES[lang];
     var html = "";
     Object.keys(base).forEach(function (section) {
-      var rows = "", count = 0;
-      walkLeaves(base[section], eff[section], section, function (path, baseVal, effVal) {
-        rows += fieldRow(path, effVal, baseVal); count++;
-      });
-      html += '<details class="csec"><summary>' + esc(SECTION_NAMES[section] || section) +
-        '<span class="cnt">' + count + " полей</span></summary><div class=\"cfields\">" + rows + "</div></details>";
+      html += renderGroup(base[section], eff[section], section, SECTION_NAMES[section] || section, 0);
     });
     $("contentEditor").innerHTML = html;
     $("contentEditor").querySelectorAll("[data-path]").forEach(function (el) {

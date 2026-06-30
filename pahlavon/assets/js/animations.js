@@ -288,32 +288,15 @@
     },
   };
 
-  /* ===== Логотип-леттеринг PAHLAVON (геометрический, SVG — ТЗ §3.2/§3.3) ===== */
-  window.PAHLAVON_LOGO = function () {
-    return `<svg viewBox="0 0 230 46" role="img" aria-label="PAHLAVON security agency" style="height:38px;width:auto">
-      <g transform="translate(2,2)">
-        <!-- эмблема-щит -->
-        <path fill="var(--accent)" d="M19 0 L38 9 V24 C38 34 19 42 19 42 C19 42 0 34 0 24 V9 Z"/>
-        <path fill="var(--bg-deep)" d="M19 7 L31 13 V24 C31 30 19 36 19 36 C19 36 7 30 7 24 V13 Z"/>
-        <path fill="var(--accent)" d="M19 12 l3.4 6.9 7.6 1.1 -5.5 5.4 1.3 7.6 -6.8 -3.6 -6.8 3.6 1.3 -7.6 -5.5 -5.4 7.6 -1.1Z"/>
-      </g>
-      <text x="50" y="24" fill="var(--text)" style="font:800 22px var(--font-base);letter-spacing:.06em">PAHLAVON</text>
-      <text x="51" y="38" fill="var(--accent)" style="font:600 8px var(--font-base);letter-spacing:.42em">SECURITY AGENCY</text>
-    </svg>`;
-  };
-
-  /* ===== Крупная эмблема для блока «О компании» / §3.5 ===== */
-  window.PAHLAVON_EMBLEM = function () {
-    var gid = "gold-" + Math.random().toString(36).slice(2, 8); // уникальный id (эмблема может вставляться несколько раз)
-    return `<svg viewBox="0 0 200 220" role="img" aria-label="Эмблема Пахлавон">
-      <defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#DABB73"/><stop offset=".5" stop-color="#C9A961"/><stop offset="1" stop-color="#A8843D"/>
-      </linearGradient></defs>
-      <path fill="url(#${gid})" d="M100 4 L190 46 V120 C190 170 100 214 100 214 C100 214 10 170 10 120 V46 Z"/>
-      <path fill="var(--bg-deep)" d="M100 22 L172 56 V120 C172 158 100 194 100 194 C100 194 28 158 28 120 V56 Z"/>
-      <path fill="url(#${gid})" d="M100 40 l16 33 36 5 -26 25 6 36 -32 -17 -32 17 6 -36 -26 -25 36 -5Z"/>
-      <text x="100" y="186" text-anchor="middle" fill="url(#${gid})" style="font:800 15px var(--font-base);letter-spacing:.18em">PAHLAVON</text>
-    </svg>`;
+  /* ===== Основной логотип — официальный растровый файл (ТЗ §3.2/§3.3) =====
+     Логотип больше не рисуется в JS: используется готовый файл бренда
+     (assets/img/logo-cream.png / logo-graphite.png), подключаемый через
+     <img> прямо в разметке header/footer каждой страницы, с CSS-переключением
+     по теме. Здесь остаётся только щит-эмблема — фирменный знак из того же
+     логотипа, вырезанный отдельно для точечного использования (favicon,
+     «О компании», экран входа в админку) — НЕ как основной логотип. */
+  window.PAHLAVON_SHIELD_SRC = function (theme) {
+    return "assets/img/shield-" + (theme === "light" ? "graphite" : "gold") + ".png";
   };
 
   /* ===== Дрейфующий треугольный паттерн для hero (ТЗ §3.4, §8.2) ===== */

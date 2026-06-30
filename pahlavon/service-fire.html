@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Пожарная сигнализация и оповещение — Pahlavon | Душанбе</title>
+  <meta name="description" content="Раннее обнаружение пожара, автоматическое оповещение и управляемая эвакуация. АПС, СОУЭ, газовое пожаротушение по нормам Республики Таджикистан.">
+  <meta name="theme-color" content="#1A1A1A">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.pahlavon.tj/service-fire.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pahlavon Security Agency">
+  <meta property="og:image" content="https://www.pahlavon.tj/assets/img/og-cover.png">
+
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap&subset=latin,cyrillic,cyrillic-ext" rel="stylesheet">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("pahlavon-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("pahlavon-lang");
+        var p = new URLSearchParams(location.search).get("lang");
+        if (p) l = p;
+        if (!l) { var b = (navigator.language || "ru").slice(0, 2); l = ["ru", "tg", "en"].includes(b) ? b : "ru"; }
+        document.documentElement.setAttribute("lang", l);
+        window.__initLang = l;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-service="fire">
+  <a class="skip-link" href="#main" data-i18n="nav.services">К содержанию</a>
+
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere__glow atmosphere__glow--gold"></div>
+    <div class="atmosphere__glow atmosphere__glow--cool"></div>
+    <div class="atmosphere__tri"></div>
+    <div class="atmosphere__grid"></div>
+    <div class="atmosphere__rings"></div>
+  </div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo-link" aria-label="Pahlavon">
+        <img class="logo-img logo-img--dark" src="assets/img/logo-cream.png" alt="PAHLAVON">
+        <img class="logo-img logo-img--light" src="assets/img/logo-graphite.png" alt="PAHLAVON">
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="services.html" data-i18n="nav.services">Услуги</a>
+        <a href="about.html" data-i18n="nav.about">О нас</a>
+        <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+        <a href="cases.html" data-i18n="nav.cases">Кейсы</a>
+        <a href="careers.html" data-i18n="nav.careers">Карьера</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+      </nav>
+      <div class="header__tools">
+        <div class="lang" role="group" aria-label="Язык / Language">
+          <button data-lang="tg">TJ</button><button data-lang="ru">RU</button><button data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        </button>
+        <a href="contacts.html" class="btn btn--primary btn--sm" data-i18n="common.requestAudit">Бесплатный аудит</a>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="icon-btn mobile-menu__close" id="menuClose" aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <a href="services.html" data-i18n="nav.services">Услуги</a>
+    <a href="about.html" data-i18n="nav.about">О нас</a>
+    <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+    <a href="cases.html" data-i18n="nav.cases">Кейсы</a>
+    <a href="careers.html" data-i18n="nav.careers">Карьера</a>
+    <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+  </div>
+
+  <main id="main">
+    <!-- ===== HERO УСЛУГИ ===== -->
+    <section class="page-hero pattern-bg">
+      <div class="container">
+        <nav class="breadcrumb reveal" aria-label="Хлебные крошки">
+          <a href="index.html" data-i18n="common.home">Главная</a><span class="sep">/</span>
+          <a href="services.html" data-i18n="services.label">Услуги</a><span class="sep">/</span>
+          <span aria-current="page" id="svcCrumb">Услуга</span>
+        </nav>
+        <div class="page-hero__eyebrow reveal">
+          <span class="page-hero__icon"><svg id="svcIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg></span>
+          <span class="label" style="margin:0" id="svcLabel">Услуга</span>
+        </div>
+        <h1 class="reveal" id="svcTitle">Название услуги</h1>
+        <p class="page-hero__subtitle reveal" id="svcSubtitle"></p>
+        <div class="page-hero__actions reveal">
+          <a href="contacts.html" class="btn btn--primary" data-i18n="common.request">Оставить заявку</a>
+          <a href="services.html" class="btn btn--ghost" data-i18n="common.backToServices">Ко всем услугам</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ВИЗУАЛИЗАЦИЯ ===== -->
+    <section class="section" style="padding-top:0">
+      <div class="container container--narrow">
+        <div class="service-card reveal" style="border-radius:var(--radius)">
+          <div class="service-anim" id="svcAnim" style="aspect-ratio:16/8"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЧТО ЭТО И ЗАЧЕМ ===== -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="introTitle">Что это и зачем</h2>
+          <p id="introLead"></p>
+        </div>
+        <div class="feature-grid" id="introGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== КАК ЭТО РАБОТАЕТ ===== -->
+    <section class="section section--tight section--surface">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="capTitle">Как это работает</h2>
+          <p id="capLead"></p>
+        </div>
+        <div class="capability-list" id="capList"></div>
+      </div>
+    </section>
+
+    <!-- ===== ОБОРУДОВАНИЕ ===== -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="eqTitle">Оборудование</h2>
+          <p id="eqLead"></p>
+        </div>
+        <div class="equipment-grid" id="eqGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== ПРИМЕНЕНИЕ ===== -->
+    <section class="section section--tight section--surface">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="appliedTitle">Применение</h2>
+        </div>
+        <div class="applied-columns">
+          <div class="applied-col reveal">
+            <h3 id="objectsTitle"></h3>
+            <ul id="objectsList"></ul>
+          </div>
+          <div class="applied-col reveal">
+            <h3 id="benefitsTitle"></h3>
+            <ul id="benefitsList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ИТОГ ===== -->
+    <section class="section section--tight">
+      <div class="container container--narrow">
+        <div class="section-head center reveal">
+          <h2 id="summaryTitle">Запомните главное</h2>
+        </div>
+        <div class="summary-card reveal">
+          <ul class="summary-list" id="summaryList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ДРУГИЕ УСЛУГИ ===== -->
+    <section class="section section--tight section--surface">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2 id="relatedTitle">Другие услуги</h2>
+        </div>
+        <div class="related-grid" id="relatedGrid"></div>
+      </div>
+    </section>
+
+    <section class="section cta-band pattern-bg">
+      <div class="container reveal">
+        <h2 data-i18n="cta.title"></h2>
+        <p data-i18n="cta.text"></p>
+        <a href="contacts.html" class="btn btn--primary" data-i18n="cta.btn"></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer pattern-bg">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo-link logo-link--lg" aria-label="Pahlavon">
+            <img class="logo-img logo-img--dark" src="assets/img/logo-cream.png" alt="PAHLAVON">
+            <img class="logo-img logo-img--light" src="assets/img/logo-graphite.png" alt="PAHLAVON">
+          </a>
+          <p data-i18n="footer.tagline"></p>
+          <div class="socials">
+            <a class="icon-btn" href="https://t.me/pahlavonagency" target="_blank" rel="noopener" aria-label="Telegram" data-contact="telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 2.8 11.6c-1 .4-1 1.4 0 1.7l4.8 1.5 1.8 5.8c.3.7 1.1.9 1.6.4l2.7-2.6 5 3.7c.7.5 1.7.1 1.9-.8l3.1-15.2c.2-1-.7-1.9-1.6-1.5z"/></svg></a>
+            <a class="icon-btn" href="https://instagram.com/pahlavon_security" target="_blank" rel="noopener" aria-label="Instagram" data-contact="instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 data-i18n="footer.navTitle"></h4>
+          <div class="footer-links">
+            <a href="services.html" data-i18n="nav.services"></a>
+            <a href="about.html" data-i18n="nav.about"></a>
+            <a href="advantages.html" data-i18n="nav.advantages"></a>
+            <a href="cases.html" data-i18n="nav.cases"></a>
+            <a href="careers.html" data-i18n="nav.careers"></a>
+            <a href="contacts.html" data-i18n="nav.contacts"></a>
+          </div>
+        </div>
+        <div>
+          <h4 data-i18n="footer.contactsTitle"></h4>
+          <div class="footer-links">
+            <a href="tel:+992981113363" data-contact="phone" data-contact-text="phone">(+992) 98-111-3363</a>
+            <a href="mailto:sales@pahlavon.tj" data-contact="email" data-contact-text="email">sales@pahlavon.tj</a>
+            <a href="https://t.me/pahlavonagency" target="_blank" rel="noopener" data-contact="telegram" data-contact-text="telegram">@pahlavonagency</a>
+            <a href="https://instagram.com/pahlavon_security" target="_blank" rel="noopener" data-contact="instagram" data-contact-text="instagram">@pahlavon_security</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Pahlavon Security Agency. <span data-i18n="footer.rights"></span></span>
+        <a href="privacy.html" data-i18n="footer.privacy"></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab">
+    <a href="tel:+992981113363" aria-label="Позвонить" data-contact="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+    <a href="https://t.me/pahlavonagency" target="_blank" rel="noopener" aria-label="Telegram" data-contact="telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 2.8 11.6c-1 .4-1 1.4 0 1.7l4.8 1.5 1.8 5.8c.3.7 1.1.9 1.6.4l2.7-2.6 5 3.7c.7.5 1.7.1 1.9-.8l3.1-15.2c.2-1-.7-1.9-1.6-1.5z"/></svg></a>
+    <a href="https://wa.me/992981113363" target="_blank" rel="noopener" aria-label="WhatsApp" data-contact="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.2-4.3-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+  </div>
+  <button class="to-top" id="toTop" aria-label="Наверх"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/i18n-pages.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/vacancies.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/page-service-detail.js"></script>
+</body>
+</html>
