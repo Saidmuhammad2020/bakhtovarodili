@@ -13,12 +13,13 @@
   <style>
     [hidden] { display: none !important; }
     .admin-head { position: sticky; top: 0; z-index: 50; background: var(--header-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .admin-head .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .9rem; }
-    .admin-head .brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: .05em; }
+    .admin-head .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1rem; padding-block: .9rem; }
+    .admin-head .brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: .05em; min-height: 44px; }
     .admin-head .brand svg { width: 30px; height: 30px; }
+    .admin-head .header__tools { flex-wrap: wrap; row-gap: .6rem; }
     .admin-main { padding-block: 2rem 4rem; }
-    .tabs { display: flex; gap: .5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
-    .tab { background: none; border: 0; border-bottom: 3px solid transparent; color: var(--text-muted); font-weight: 700; padding: .8rem 1.1rem; }
+    .tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: .5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; -webkit-overflow-scrolling: touch; }
+    .tab { background: none; border: 0; border-bottom: 3px solid transparent; color: var(--text-muted); font-weight: 700; padding: .8rem 1.1rem; min-height: 44px; white-space: nowrap; flex: none; }
     .tab[aria-selected="true"] { color: var(--accent-text); border-color: var(--accent); }
     .tabpanel[hidden] { display: none; }
     .toolbar { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; margin-bottom: 1.4rem; }
