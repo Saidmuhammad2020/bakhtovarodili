@@ -1,0 +1,14 @@
+{
+  "name": "pahlavon-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zero-dependency backend for the Pahlavon site & admin panel (auth, content, vacancies, applications).",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --experimental-sqlite server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

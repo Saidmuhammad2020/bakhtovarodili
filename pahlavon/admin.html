@@ -156,6 +156,19 @@
 
       <!-- Вкладка: Контакты и бренд -->
       <section class="tabpanel" id="panelSettings" role="tabpanel" aria-labelledby="tabSettings" hidden>
+        <div class="login-card" style="max-width:560px;text-align:left;margin-bottom:1.6rem">
+          <h3 style="margin-top:0">Сервер (бэкенд)</h3>
+          <p class="note" style="margin-bottom:1rem">Укажите адрес API-сервера, чтобы контент, вакансии и отклики хранились на сервере и были видны всем посетителям и на всех устройствах. Если поле пустое — работает офлайн-режим (localStorage этого браузера).</p>
+          <div class="field">
+            <label for="setApiBase">Адрес API</label>
+            <input type="text" id="setApiBase" placeholder="https://api.pahlavon.tj">
+          </div>
+          <div class="toolbar">
+            <button type="button" class="btn btn--primary btn--sm" id="apiSave">Сохранить адрес</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="apiCheck">Проверить соединение</button>
+            <span id="apiStatus" class="note"></span>
+          </div>
+        </div>
         <p class="note" style="margin-bottom:1.2rem">Эти данные подставляются во все ссылки и кнопки связи на сайте (телефон, e-mail, мессенджеры, соцсети).</p>
         <form id="settingsForm" style="max-width:560px">
           <div class="grid2">
@@ -233,6 +246,7 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/content.js"></script>
   <script src="assets/js/vacancies.js"></script>
+  <script src="assets/js/api.js"></script>
   <script src="assets/js/animations.js"></script>
   <script src="assets/js/admin.js"></script>
 </body>

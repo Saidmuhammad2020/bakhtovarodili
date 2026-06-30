@@ -397,20 +397,24 @@
 
     var position = document.getElementById("aPosition").value;
     var msgText = document.getElementById("aMessage").value;
-    // Сохраняем отклик локально — его видно в админ-панели (admin.html).
-    // На проде заменить на серверный API (см. README).
-    if (window.VacancyStore) {
-      window.VacancyStore.addApplication({
-        id: window.VacancyStore.newId(),
-        ts: Date.now(),
-        type: "vacancy",
-        position: position || "—",
-        name: name.value.trim(),
-        phone: aPhone.value,
-        message: msgText,
-        lang: state.lang,
-        status: "new",
+    var application = {
+      id: (window.VacancyStore ? window.VacancyStore.newId() : "id-" + Date.now()),
+      ts: Date.now(),
+      type: "vacancy",
+      position: position || "—",
+      name: name.value.trim(),
+      phone: aPhone.value,
+      message: msgText,
+      lang: state.lang,
+      status: "new",
+    };
+    // Отправляем на сервер (если настроен), иначе сохраняем локально для админ-панели.
+    if (window.PahlavonAPI && window.PahlavonAPI.enabled()) {
+      window.PahlavonAPI.postApplication(application).catch(function () {
+        if (window.VacancyStore) window.VacancyStore.addApplication(application);
       });
+    } else if (window.VacancyStore) {
+      window.VacancyStore.addApplication(application);
     }
     applyForm.style.display = "none";
     document.getElementById("applySuccess").classList.add("show");
@@ -428,4 +432,12 @@
 
   /* ================= СТАРТ ================= */
   setLang(state.lang);
+
+  /* Если настроен бэкенд — подтягиваем актуальный контент с сервера и перерисовываем */
+  if (window.PahlavonAPI && window.PahlavonAPI.enabled()) {
+    window.PahlavonAPI.syncDown().then(function () {
+      if (window.ContentStore && window.ContentStore.reapply) window.ContentStore.reapply();
+      renderAll();
+    }).catch(function () { /* офлайн — остаёмся на кэше localStorage */ });
+  }
 })();

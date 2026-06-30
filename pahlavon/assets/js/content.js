@@ -53,6 +53,13 @@
         Object.keys(ov[l]).forEach(function (p) { setPath(window.LOCALES[l], p, ov[l][p]); });
       });
     },
+    /* Сбросить LOCALES к эталону и применить оверрайды заново (после синка с сервером) */
+    reapply: function () {
+      ["ru", "tg", "en"].forEach(function (l) {
+        if (window.BASE_LOCALES[l]) window.LOCALES[l] = clone(window.BASE_LOCALES[l]);
+      });
+      this.apply();
+    },
   };
 
   window.DEFAULT_SETTINGS = {

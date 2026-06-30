@@ -23,6 +23,10 @@
   var TYPE_LABELS = { full: "Полная занятость", part: "Частичная занятость", shift: "Сменный график", remote: "Удалённо" };
   var LANG_NAMES = { ru: "RU", tg: "TJ", en: "EN" };
 
+  /* Включён ли серверный режим */
+  function API() { return window.PahlavonAPI && window.PahlavonAPI.enabled(); }
+  function apiErr(e) { alert("Ошибка сервера: " + ((e && e.message) || e)); }
+
   /* ---------- Эмблемы ---------- */
   if (window.PAHLAVON_EMBLEM) {
     $("loginEmblem").outerHTML = window.PAHLAVON_EMBLEM().replace("<svg ", '<svg class="emb" ');
@@ -39,28 +43,37 @@
 
   /* ================= ВХОД ================= */
   function isAuthed() { try { return sessionStorage.getItem(AUTH_KEY) === "1"; } catch (e) { return false; } }
-  function showApp() {
+  async function showApp() {
     $("loginView").hidden = true;
     $("adminView").hidden = false;
+    if (API()) {
+      try {
+        await window.PahlavonAPI.syncDown();
+        if (window.ContentStore && window.ContentStore.reapply) window.ContentStore.reapply();
+      } catch (e) {}
+    }
     renderVacList();
     renderAppList();
     buildContentEditor();
   }
   function showLogin() { $("loginView").hidden = false; $("adminView").hidden = true; }
 
+  function loginOk() { try { sessionStorage.setItem(AUTH_KEY, "1"); } catch (e) {} $("pwdErr").style.display = "none"; showApp(); }
+  function loginFail() { $("pwdErr").style.display = "block"; $("pwd").closest(".field").classList.add("field--error"); }
+
   $("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    if ($("pwd").value === ADMIN_PASSWORD) {
-      try { sessionStorage.setItem(AUTH_KEY, "1"); } catch (err) {}
-      $("pwdErr").style.display = "none";
-      showApp();
+    if (API()) {
+      window.PahlavonAPI.login($("pwd").value).then(loginOk).catch(loginFail);
+    } else if ($("pwd").value === ADMIN_PASSWORD) {
+      loginOk();
     } else {
-      $("pwdErr").style.display = "block";
-      $("pwd").closest(".field").classList.add("field--error");
+      loginFail();
     }
   });
   $("logoutBtn").addEventListener("click", function () {
     try { sessionStorage.removeItem(AUTH_KEY); } catch (e) {}
+    if (API()) window.PahlavonAPI.logout();
     showLogin();
   });
 
@@ -110,12 +123,14 @@
     if (!confirm("Удалить «" + title + "»?")) return;
     list.splice(i, 1);
     window.VacancyStore.save(list);
+    if (API()) window.PahlavonAPI.putVacancies(list).catch(apiErr);
     renderVacList();
   }
 
   $("resetVacBtn").addEventListener("click", function () {
     if (!confirm("Сбросить список вакансий к стандартному набору? Ваши изменения будут потеряны.")) return;
     window.VacancyStore.resetDefaults();
+    if (API()) window.PahlavonAPI.putVacancies(window.DEFAULT_VACANCIES).catch(apiErr);
     renderVacList();
   });
 
@@ -174,13 +189,22 @@
     var list = window.VacancyStore.all();
     if (editIndex >= 0) list[editIndex] = record; else list.push(record);
     window.VacancyStore.save(list);
+    if (API()) window.PahlavonAPI.putVacancies(list).catch(apiErr);
     closeVac();
     renderVacList();
   });
 
   /* ================= ОТКЛИКИ ================= */
+  var lastApps = [];
   function renderAppList() {
-    var apps = window.VacancyStore.applications();
+    if (API()) {
+      window.PahlavonAPI.getApplications().then(renderApps).catch(function () { renderApps(window.VacancyStore.applications()); });
+    } else {
+      renderApps(window.VacancyStore.applications());
+    }
+  }
+  function renderApps(apps) {
+    lastApps = apps;
     $("appCount").textContent = "Всего откликов: " + apps.length;
     var badge = $("appBadge");
     badge.textContent = apps.length;
@@ -206,16 +230,17 @@
     box.querySelectorAll("[data-delapp]").forEach(function (b) {
       b.addEventListener("click", function () {
         if (!confirm("Удалить отклик?")) return;
-        window.VacancyStore.deleteApplication(b.getAttribute("data-delapp"));
-        renderAppList();
+        var id = b.getAttribute("data-delapp");
+        if (API()) window.PahlavonAPI.deleteApplication(id).then(renderAppList).catch(apiErr);
+        else { window.VacancyStore.deleteApplication(id); renderAppList(); }
       });
     });
   }
 
   $("clearAppBtn").addEventListener("click", function () {
     if (!confirm("Удалить все отклики безвозвратно?")) return;
-    window.VacancyStore.clearApplications();
-    renderAppList();
+    if (API()) window.PahlavonAPI.clearApplications().then(renderAppList).catch(apiErr);
+    else { window.VacancyStore.clearApplications(); renderAppList(); }
   });
 
   function download(filename, text, mime) {
@@ -228,11 +253,11 @@
   }
 
   $("exportJsonBtn").addEventListener("click", function () {
-    download("pahlavon-applications.json", JSON.stringify(window.VacancyStore.applications(), null, 2), "application/json");
+    download("pahlavon-applications.json", JSON.stringify(lastApps, null, 2), "application/json");
   });
 
   $("exportCsvBtn").addEventListener("click", function () {
-    var apps = window.VacancyStore.applications();
+    var apps = lastApps;
     var head = ["Дата", "Имя", "Телефон", "Должность", "Язык", "Сообщение"];
     function cell(s) { return '"' + String(s == null ? "" : s).replace(/"/g, '""') + '"'; }
     var rows = apps.map(function (a) {
@@ -307,7 +332,13 @@
     ov[lang] = changed;
     window.ContentStore.save(ov);
     window.ContentStore.apply();
-    alert("Контент сохранён (" + lang.toUpperCase() + "). Обновите вкладку с сайтом, чтобы увидеть изменения.");
+    if (API()) {
+      window.PahlavonAPI.putContent(ov)
+        .then(function () { alert("Контент сохранён на сервере (" + lang.toUpperCase() + "). Изменения видны всем посетителям."); })
+        .catch(apiErr);
+    } else {
+      alert("Контент сохранён (" + lang.toUpperCase() + "). Обновите вкладку с сайтом, чтобы увидеть изменения.");
+    }
   }
 
   document.querySelectorAll(".clang").forEach(function (b) {
@@ -339,24 +370,57 @@
     $("setPhone").value = s.phone; $("setPhoneDisplay").value = s.phoneDisplay;
     $("setEmail").value = s.email; $("setTelegram").value = s.telegram;
     $("setWhatsapp").value = s.whatsapp; $("setInstagram").value = s.instagram;
+    loadApiCfg();
   }
   $("settingsForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    window.SettingsStore.save({
+    var s = {
       phone: $("setPhone").value.trim(),
       phoneDisplay: $("setPhoneDisplay").value.trim(),
       email: $("setEmail").value.trim(),
       telegram: $("setTelegram").value.trim().replace(/^@/, ""),
       whatsapp: $("setWhatsapp").value.replace(/\D/g, ""),
       instagram: $("setInstagram").value.trim().replace(/^@/, ""),
-    });
-    alert("Настройки сохранены. Обновите вкладку с сайтом, чтобы увидеть изменения.");
+    };
+    window.SettingsStore.save(s);
+    if (API()) window.PahlavonAPI.putSettings(s).then(function () { alert("Настройки сохранены на сервере."); }).catch(apiErr);
+    else alert("Настройки сохранены. Обновите вкладку с сайтом, чтобы увидеть изменения.");
   });
   $("settingsReset").addEventListener("click", function () {
     if (!confirm("Сбросить контакты к стандартным?")) return;
     window.SettingsStore.reset(); loadSettings();
   });
 
+  /* ================= API: конфигурация сервера ================= */
+  function updateApiStatus(msg, ok) {
+    var el = $("apiStatus");
+    if (!el) return;
+    if (msg !== undefined) { el.textContent = msg; el.style.color = ok ? "var(--ok)" : "var(--danger)"; return; }
+    el.textContent = API() ? "● серверный режим" : "○ офлайн-режим (localStorage)";
+    el.style.color = API() ? "var(--ok)" : "var(--text-subtle)";
+  }
+  function loadApiCfg() { $("setApiBase").value = window.PahlavonAPI.base(); updateApiStatus(); }
+  $("apiSave").addEventListener("click", function () {
+    window.PahlavonAPI.setBase($("setApiBase").value);
+    updateApiStatus();
+    alert("Адрес сервера сохранён. Если включили сервер впервые — выйдите и войдите снова.");
+  });
+  $("apiCheck").addEventListener("click", function () {
+    window.PahlavonAPI.setBase($("setApiBase").value);
+    updateApiStatus("проверяем…");
+    window.PahlavonAPI.health()
+      .then(function () { updateApiStatus("✓ соединение есть", true); })
+      .catch(function () { updateApiStatus("✗ сервер недоступен", false); });
+  });
+
   /* ================= СТАРТ ================= */
-  if (isAuthed()) showApp(); else showLogin();
+  (async function start() {
+    loadApiCfg();
+    if (API()) {
+      if (window.PahlavonAPI.token() && (await window.PahlavonAPI.verify())) showApp();
+      else showLogin();
+    } else {
+      if (isAuthed()) showApp(); else showLogin();
+    }
+  })();
 })();
