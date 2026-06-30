@@ -109,6 +109,36 @@
     fsel.innerHTML = t("contacts.form.typeOptions").map(function (x, i) { return '<option value="' + (i ? x : "") + '"' + (i ? "" : " disabled selected") + ">" + x + "</option>"; }).join("");
   }
 
+  /* ---------- Вакансии / Карьера ---------- */
+  function vacField(v, key) { var f = v[key] || {}; return f[state.lang] || f.ru || ""; }
+  function renderCareers() {
+    var grid = document.getElementById("careersGrid");
+    if (!grid) return;
+    var list = (window.VacancyStore ? window.VacancyStore.all() : []);
+    document.getElementById("careersCount").textContent = list.length;
+    if (!list.length) {
+      grid.innerHTML = '<div class="careers-empty">' + t("careers.empty") + "</div>";
+      return;
+    }
+    grid.innerHTML = list.map(function (v, i) {
+      var typeLabel = t("careers.employmentTypes." + v.type) || v.type;
+      var salary = v.salary || t("careers.salaryNegotiable");
+      return '<article class="vacancy reveal">' +
+        '<div class="vacancy__meta">' +
+          '<span class="tag tag--accent">' + typeLabel + "</span>" +
+          (v.location ? '<span class="tag">' + v.location + "</span>" : "") +
+          '<span class="tag">' + salary + "</span>" +
+        "</div>" +
+        "<h3>" + vacField(v, "title") + "</h3>" +
+        '<p class="vacancy__desc">' + vacField(v, "desc") + "</p>" +
+        '<button class="btn btn--primary btn--sm" data-idx="' + i + '">' + t("careers.applyBtn") + "</button>" +
+        "</article>";
+    }).join("");
+    grid.querySelectorAll("[data-idx]").forEach(function (b) {
+      b.addEventListener("click", function () { openApply(vacField(list[+b.getAttribute("data-idx")], "title")); });
+    });
+  }
+
   /* ================= ПРИМЕНЕНИЕ ПЕРЕВОДОВ К РАЗМЕТКЕ ================= */
   function applyStatic() {
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -129,10 +159,28 @@
     if (m) m.setAttribute("content", val);
   }
 
+  /* ---------- Контактные/брендовые настройки (управляются из админки) ---------- */
+  function applySettings() {
+    if (!window.SettingsStore) return;
+    var s = window.SettingsStore.all();
+    function each(sel, fn) { document.querySelectorAll(sel).forEach(fn); }
+    each('[data-contact="phone"]', function (a) { a.href = "tel:" + s.phone; });
+    each('[data-contact-text="phone"]', function (a) { a.textContent = s.phoneDisplay; });
+    each('[data-contact="email"]', function (a) { a.href = "mailto:" + s.email; });
+    each('[data-contact-text="email"]', function (a) { a.textContent = s.email; });
+    each('[data-contact="telegram"]', function (a) { a.href = "https://t.me/" + s.telegram; });
+    each('[data-contact-text="telegram"]', function (a) { a.textContent = "@" + s.telegram; });
+    each('[data-contact="whatsapp"]', function (a) { a.href = "https://wa.me/" + s.whatsapp; });
+    each('[data-contact="instagram"]', function (a) { a.href = "https://instagram.com/" + s.instagram; });
+    each('[data-contact-text="instagram"]', function (a) { a.textContent = "@" + s.instagram; });
+  }
+
   function renderAll() {
     renderServices(); renderHeroStats(); renderCounters(); renderFeatures();
     renderProcess(); renderCases(); renderReviews(); renderFaq(); renderCalc();
+    renderCareers();
     applyStatic();
+    applySettings();
     updateCalc();
     observeReveal();
   }
@@ -262,22 +310,25 @@
   }
 
   /* ================= ФОРМА ЗАЯВКИ (ТЗ §9.1) ================= */
+  // Переиспользуемая маска телефона +992
+  function attachPhoneMask(el) {
+    el.addEventListener("input", function () {
+      var d = el.value.replace(/\D/g, "");
+      if (d.startsWith("992")) d = d.slice(3);
+      d = d.slice(0, 9);
+      var out = "+992";
+      if (d.length) out += " " + d.slice(0, 3);
+      if (d.length > 3) out += " " + d.slice(3, 5);
+      if (d.length > 5) out += " " + d.slice(5, 7);
+      if (d.length > 7) out += " " + d.slice(7, 9);
+      el.value = out;
+    });
+  }
+  function setErr(id, on) { document.getElementById(id).closest(".field").classList.toggle("field--error", on); }
+
   var form = document.getElementById("auditForm");
   var phone = document.getElementById("fPhone");
-  // маска телефона +992
-  phone.addEventListener("input", function () {
-    var d = phone.value.replace(/\D/g, "");
-    if (d.startsWith("992")) d = d.slice(3);
-    d = d.slice(0, 9);
-    var out = "+992";
-    if (d.length) out += " " + d.slice(0, 3);
-    if (d.length > 3) out += " " + d.slice(3, 5);
-    if (d.length > 5) out += " " + d.slice(5, 7);
-    if (d.length > 7) out += " " + d.slice(7, 9);
-    phone.value = out;
-  });
-
-  function setErr(id, on) { document.getElementById(id).closest(".field").classList.toggle("field--error", on); }
+  attachPhoneMask(phone);
 
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
@@ -303,6 +354,73 @@
     document.getElementById("formSuccess").classList.add("show");
     // ненавязчиво предлагаем отправить в Telegram
     window.open("https://t.me/pahlavonagency?text=" + msg, "_blank");
+  });
+
+  /* ================= ОТКЛИК НА ВАКАНСИЮ (модальное окно) ================= */
+  var applyModal = document.getElementById("applyModal");
+  var applyForm = document.getElementById("applyForm");
+  var aPhone = document.getElementById("aPhone");
+  attachPhoneMask(aPhone);
+
+  function openApply(position) {
+    applyForm.reset();
+    applyForm.style.display = "";
+    document.getElementById("applySuccess").classList.remove("show");
+    document.getElementById("aPosition").value = position || "";
+    ["aName", "aPhone", "aConsent"].forEach(function (id) { setErr(id, false); });
+    applyModal.classList.add("open");
+    applyModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    setTimeout(function () { document.getElementById("aName").focus(); }, 60);
+  }
+  function closeApply() {
+    applyModal.classList.remove("open");
+    applyModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+  window.openApply = openApply;
+
+  applyModal.querySelectorAll("[data-close]").forEach(function (el) { el.addEventListener("click", closeApply); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && applyModal.classList.contains("open")) closeApply(); });
+  var resumeBtn = document.getElementById("sendResumeBtn");
+  if (resumeBtn) resumeBtn.addEventListener("click", function () { openApply(""); });
+
+  applyForm.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var ok = true;
+    var name = document.getElementById("aName");
+    if (!name.value.trim()) { setErr("aName", true); ok = false; } else setErr("aName", false);
+    if (aPhone.value.replace(/\D/g, "").length < 12) { setErr("aPhone", true); ok = false; } else setErr("aPhone", false);
+    var consent = document.getElementById("aConsent");
+    if (!consent.checked) { setErr("aConsent", true); ok = false; } else setErr("aConsent", false);
+    if (!ok) return;
+
+    var position = document.getElementById("aPosition").value;
+    var msgText = document.getElementById("aMessage").value;
+    // Сохраняем отклик локально — его видно в админ-панели (admin.html).
+    // На проде заменить на серверный API (см. README).
+    if (window.VacancyStore) {
+      window.VacancyStore.addApplication({
+        id: window.VacancyStore.newId(),
+        ts: Date.now(),
+        type: "vacancy",
+        position: position || "—",
+        name: name.value.trim(),
+        phone: aPhone.value,
+        message: msgText,
+        lang: state.lang,
+        status: "new",
+      });
+    }
+    applyForm.style.display = "none";
+    document.getElementById("applySuccess").classList.add("show");
+
+    var tg = "Отклик на вакансию (pahlavon.tj)%0A" +
+      "Должность: " + encodeURIComponent(position || "—") + "%0A" +
+      "Имя: " + encodeURIComponent(name.value) + "%0A" +
+      "Телефон: " + encodeURIComponent(aPhone.value) + "%0A" +
+      "О себе: " + encodeURIComponent(msgText || "—");
+    window.open("https://t.me/pahlavonagency?text=" + tg, "_blank");
   });
 
   /* ================= ГОД В ПОДВАЛЕ ================= */

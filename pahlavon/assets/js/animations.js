@@ -304,14 +304,15 @@
 
   /* ===== Крупная эмблема для блока «О компании» / §3.5 ===== */
   window.PAHLAVON_EMBLEM = function () {
+    var gid = "gold-" + Math.random().toString(36).slice(2, 8); // уникальный id (эмблема может вставляться несколько раз)
     return `<svg viewBox="0 0 200 220" role="img" aria-label="Эмблема Пахлавон">
-      <defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stop-color="#DABB73"/><stop offset=".5" stop-color="#C9A961"/><stop offset="1" stop-color="#A8843D"/>
       </linearGradient></defs>
-      <path fill="url(#gold)" d="M100 4 L190 46 V120 C190 170 100 214 100 214 C100 214 10 170 10 120 V46 Z"/>
+      <path fill="url(#${gid})" d="M100 4 L190 46 V120 C190 170 100 214 100 214 C100 214 10 170 10 120 V46 Z"/>
       <path fill="var(--bg-deep)" d="M100 22 L172 56 V120 C172 158 100 194 100 194 C100 194 28 158 28 120 V56 Z"/>
-      <path fill="url(#gold)" d="M100 40 l16 33 36 5 -26 25 6 36 -32 -17 -32 17 6 -36 -26 -25 36 -5Z"/>
-      <text x="100" y="186" text-anchor="middle" fill="url(#gold)" style="font:800 15px var(--font-base);letter-spacing:.18em">PAHLAVON</text>
+      <path fill="url(#${gid})" d="M100 40 l16 33 36 5 -26 25 6 36 -32 -17 -32 17 6 -36 -26 -25 36 -5Z"/>
+      <text x="100" y="186" text-anchor="middle" fill="url(#${gid})" style="font:800 15px var(--font-base);letter-spacing:.18em">PAHLAVON</text>
     </svg>`;
   };
 

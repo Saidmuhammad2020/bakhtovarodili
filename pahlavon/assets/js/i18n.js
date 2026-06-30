@@ -12,7 +12,7 @@ window.LOCALES = {
     },
     nav: {
       services: "Услуги", about: "О нас", advantages: "Преимущества",
-      process: "Как работаем", cases: "Кейсы", contacts: "Контакты",
+      process: "Как работаем", cases: "Кейсы", careers: "Карьера", contacts: "Контакты",
     },
     common: {
       requestAudit: "Бесплатный аудит",
@@ -24,7 +24,7 @@ window.LOCALES = {
     },
     hero: {
       label: "Охранное агентство · Душанбе",
-      title: 'Защита вашего бизнеса — под <span class="gold">глубоким анализом</span>',
+      title: 'Сосредоточьтесь на главном, <span class="gold">о безопасности позаботимся мы!</span>',
       slogan: "«За безопасность нужно платить. За её отсутствие — расплачиваться.»",
       stats: [
         { num: "12+", cap: "лет на рынке" },
@@ -170,6 +170,31 @@ window.LOCALES = {
       text: "Наш инженер оценит уязвимости и предложит решение под ваш бюджет. Без обязательств.",
       btn: "Получить бесплатный аудит",
     },
+    careers: {
+      label: "Карьера",
+      title: "Вакансии в «Пахлавон»",
+      subtitle: "Присоединяйтесь к команде, которая защищает бизнес и дом по всему Душанбе. Мы ценим ответственность, дисциплину и развитие.",
+      employmentTypes: { full: "Полная занятость", part: "Частичная занятость", shift: "Сменный график", remote: "Удалённо" },
+      salaryNegotiable: "по договорённости",
+      openCount: "открытых вакансий",
+      applyBtn: "Откликнуться",
+      empty: "Сейчас открытых вакансий нет. Отправьте резюме — мы свяжемся, когда появится подходящая позиция.",
+      sendResume: "Отправить резюме",
+      apply: {
+        title: "Отклик на вакансию",
+        position: "Должность",
+        name: "Ваше имя",
+        phone: "Телефон",
+        message: "О себе и опыте работы",
+        consent: "Я согласен на обработку персональных данных",
+        submit: "Отправить отклик",
+        successTitle: "Отклик отправлен!",
+        successText: "Спасибо! Мы рассмотрим вашу заявку и свяжемся с вами.",
+        errName: "Введите имя",
+        errPhone: "Введите корректный телефон",
+        errConsent: "Необходимо согласие на обработку данных",
+      },
+    },
     contacts: {
       label: "Контакты",
       title: "Свяжитесь с нами",
@@ -210,7 +235,7 @@ window.LOCALES = {
     },
     nav: {
       services: "Хидматҳо", about: "Дар бораи мо", advantages: "Бартариҳо",
-      process: "Чӣ тавр кор мекунем", cases: "Кейсҳо", contacts: "Тамос",
+      process: "Чӣ тавр кор мекунем", cases: "Кейсҳо", careers: "Корхо", contacts: "Тамос",
     },
     common: {
       requestAudit: "Аудити ройгон",
@@ -222,7 +247,7 @@ window.LOCALES = {
     },
     hero: {
       label: "Агентии муҳофизатӣ · Душанбе",
-      title: 'Ҳифзи тиҷорати шумо — таҳти <span class="gold">таҳлили амиқ</span>',
+      title: 'Ба корҳои муҳим машғул шавед, <span class="gold">бехатариро мо таъмин мекунем!</span>',
       slogan: "«Барои бехатарӣ бояд пардохт. Барои набудани он — ҷазо кашид.»",
       stats: [
         { num: "12+", cap: "сол дар бозор" },
@@ -368,6 +393,31 @@ window.LOCALES = {
       text: "Муҳандиси мо осебпазириро баҳо медиҳад ва ҳал мувофиқи буҷети шуморо пешниҳод мекунад. Бе уҳдадорӣ.",
       btn: "Гирифтани аудити ройгон",
     },
+    careers: {
+      label: "Корхо",
+      title: "Ҷойҳои холӣ дар «Паҳлавон»",
+      subtitle: "Ба дастае ҳамроҳ шавед, ки тиҷорат ва хонаро дар тамоми Душанбе ҳифз мекунад. Мо масъулият, интизом ва рушдро қадр мекунем.",
+      employmentTypes: { full: "Шуғли пурра", part: "Шуғли қисман", shift: "Ҷадвали навбатӣ", remote: "Аз дур" },
+      salaryNegotiable: "бо мувофиқа",
+      openCount: "ҷойҳои холӣ",
+      applyBtn: "Дархост додан",
+      empty: "Ҳоло ҷойҳои холӣ нест. Резюмеи худро фиристед — ҳангоми пайдо шудани ҷойи мувофиқ тамос мегирем.",
+      sendResume: "Фиристодани резюме",
+      apply: {
+        title: "Дархост ба ҷойи холӣ",
+        position: "Вазифа",
+        name: "Номи шумо",
+        phone: "Телефон",
+        message: "Дар бораи худ ва таҷрибаи корӣ",
+        consent: "Ман ба коркарди маълумоти шахсӣ розӣ ҳастам",
+        submit: "Фиристодани дархост",
+        successTitle: "Дархост фиристода шуд!",
+        successText: "Ташаккур! Мо дархости шуморо баррасӣ карда, бо шумо тамос мегирем.",
+        errName: "Номро ворид кунед",
+        errPhone: "Телефони дурустро ворид кунед",
+        errConsent: "Розигӣ ба коркарди маълумот зарур аст",
+      },
+    },
     contacts: {
       label: "Тамос",
       title: "Бо мо тамос гиред",
@@ -408,7 +458,7 @@ window.LOCALES = {
     },
     nav: {
       services: "Services", about: "About", advantages: "Advantages",
-      process: "Process", cases: "Cases", contacts: "Contact",
+      process: "Process", cases: "Cases", careers: "Careers", contacts: "Contact",
     },
     common: {
       requestAudit: "Free audit",
@@ -420,7 +470,7 @@ window.LOCALES = {
     },
     hero: {
       label: "Security Agency · Dushanbe",
-      title: 'Protect your business — powered by <span class="gold">deep analysis</span>',
+      title: 'Focus on what matters — <span class="gold">we\'ll take care of security!</span>',
       slogan: "“You pay for security. You pay far more for the lack of it.”",
       stats: [
         { num: "12+", cap: "years on the market" },
@@ -565,6 +615,31 @@ window.LOCALES = {
       title: "Book a free on-site security audit",
       text: "Our engineer will assess vulnerabilities and propose a solution for your budget. No obligations.",
       btn: "Get a free audit",
+    },
+    careers: {
+      label: "Careers",
+      title: "Careers at Pahlavon",
+      subtitle: "Join a team that protects business and home across Dushanbe. We value responsibility, discipline and growth.",
+      employmentTypes: { full: "Full-time", part: "Part-time", shift: "Shift work", remote: "Remote" },
+      salaryNegotiable: "negotiable",
+      openCount: "open positions",
+      applyBtn: "Apply",
+      empty: "There are no open positions right now. Send your CV — we'll reach out when a suitable role opens up.",
+      sendResume: "Send your CV",
+      apply: {
+        title: "Apply for a position",
+        position: "Position",
+        name: "Your name",
+        phone: "Phone",
+        message: "About you and your experience",
+        consent: "I consent to the processing of my personal data",
+        submit: "Send application",
+        successTitle: "Application sent!",
+        successText: "Thank you! We'll review your application and get in touch.",
+        errName: "Enter your name",
+        errPhone: "Enter a valid phone number",
+        errConsent: "Consent to data processing is required",
+      },
     },
     contacts: {
       label: "Contact",
