@@ -13,7 +13,7 @@
      язык-нейтральные строки; title/desc — локализованы (ru/tg/en). */
   window.DEFAULT_VACANCIES = [
     {
-      id: "v-guard", type: "shift", location: "Душанбе", salary: "1500–3000 TJS",
+      id: "v-guard", type: "shift", location: "Душанбе", salary: "",
       title: { ru: "Охранник", tg: "Муҳофиз", en: "Security Guard" },
       desc: {
         ru: "Несение службы на объекте: контроль доступа, патрулирование, реагирование на инциденты. Требуется ответственность, дисциплина, физическая подготовка.",
@@ -31,7 +31,7 @@
       },
     },
     {
-      id: "v-installer", type: "full", location: "Душанбе", salary: "4000–7000 TJS",
+      id: "v-installer", type: "full", location: "Душанбе", salary: "",
       title: { ru: "Монтажник систем видеонаблюдения", tg: "Технику насби системаҳои видеонозорат", en: "CCTV Installation Technician" },
       desc: {
         ru: "Монтаж и настройка видеонаблюдения, СКУД и пожарной сигнализации. Опыт работы с низковольтными системами приветствуется.",

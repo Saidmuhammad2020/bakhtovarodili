@@ -28,7 +28,6 @@ window.LOCALES = {
       slogan: "«За безопасность нужно платить. За её отсутствие — расплачиваться.»",
       stats: [
         { num: "8+", cap: "лет на рынке" },
-        { num: "850+", cap: "защищённых объектов" },
         { num: "24/7", cap: "мониторинг и реагирование" },
       ],
     },
@@ -93,7 +92,6 @@ window.LOCALES = {
       p1: "«Пахлавон» — охранное агентство полного цикла в Душанбе и Согдийской области (есть филиал). Мы проектируем, внедряем и обслуживаем комплексные системы безопасности для бизнеса, частных домов и промышленных объектов.",
       p2: "Наш подход — защита как услуга: цифры, факты и технология глубокого анализа вместо лишних обещаний. Мы отвечаем за результат на каждом объекте.",
       counters: [
-        { num: "850+", cap: "объектов под защитой" },
         { num: "8+", cap: "лет опыта" },
         { num: "60+", cap: "специалистов" },
       ],
@@ -251,7 +249,6 @@ window.LOCALES = {
       slogan: "«Барои бехатарӣ бояд пардохт. Барои набудани он — ҷазо кашид.»",
       stats: [
         { num: "8+", cap: "сол дар бозор" },
-        { num: "850+", cap: "объекти ҳифзшуда" },
         { num: "24/7", cap: "назорат ва вокуниш" },
       ],
     },
@@ -316,7 +313,6 @@ window.LOCALES = {
       p1: "«Паҳлавон» — агентии муҳофизатии давраи пурра дар Душанбе ва вилояти Суғд (филиал дорад). Мо системаҳои комплексии бехатариро барои тиҷорат, хонаҳои хусусӣ ва объектҳои саноатӣ тарҳрезӣ, ҷорӣ ва хизматрасонӣ мекунем.",
       p2: "Равиши мо — ҳифз ҳамчун хидмат: рақамҳо, далелҳо ва технологияи таҳлили амиқ ба ҷои ваъдаҳои зиёдатӣ. Мо барои натиҷа дар ҳар объект масъулем.",
       counters: [
-        { num: "850+", cap: "объект таҳти ҳифз" },
         { num: "8+", cap: "соли таҷриба" },
         { num: "60+", cap: "мутахассис" },
       ],
@@ -474,7 +470,6 @@ window.LOCALES = {
       slogan: "“You pay for security. You pay far more for the lack of it.”",
       stats: [
         { num: "8+", cap: "years on the market" },
-        { num: "850+", cap: "protected sites" },
         { num: "24/7", cap: "monitoring & response" },
       ],
     },
@@ -539,7 +534,6 @@ window.LOCALES = {
       p1: "Pahlavon is a full-cycle security agency in Dushanbe and the Sughd region (with a branch office there). We design, deploy and maintain comprehensive security systems for businesses, private homes and industrial sites.",
       p2: "Our approach is protection as a service: figures, facts and deep-analysis technology instead of empty promises. We own the result at every site.",
       counters: [
-        { num: "850+", cap: "sites protected" },
         { num: "8+", cap: "years of experience" },
         { num: "60+", cap: "specialists" },
       ],

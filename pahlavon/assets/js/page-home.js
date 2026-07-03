@@ -65,13 +65,26 @@
       return '<div class="step reveal"><div class="step__num">' + (i + 1) + "</div><h3>" + s.t + "</h3><p>" + s.d + "</p></div>";
     }).join("");
   }
+  var CASE_ICONS = [
+    '<rect x="74" y="53" width="30" height="17" rx="3"/><path d="M104 57 l14 -5 v17 l-14 -5"/>' +
+      '<line x1="82" y1="70" x2="82" y2="80"/><line x1="75" y1="80" x2="91" y2="80"/>',
+    '<path d="M100 42 l17 6 v11 c0 13 -9 21 -17 25 c-8 -4 -17 -12 -17 -25 v-11 z"/><path d="M91 63 l6 6 13 -13"/>',
+    '<path d="M72 62 q28 -23 56 0 q-28 23 -56 0 z"/><circle cx="100" cy="62" r="8"/><circle cx="100" cy="62" r="2.5" fill="var(--accent)"/>',
+    '<path d="M80 65 l20 -17 20 17"/><path d="M85 63 v21 h30 v-21"/><rect x="95" y="72" width="10" height="12" rx="1"/>',
+    '<path d="M100 44 a13 13 0 0 1 13 13 c0 10 -13 23 -13 23 c0 0 -13 -13 -13 -23 a13 13 0 0 1 13 -13 z"/><circle cx="100" cy="57" r="5"/>',
+    '<rect x="80" y="46" width="24" height="40" rx="1"/><rect x="104" y="58" width="16" height="28" rx="1"/>' +
+      '<line x1="86" y1="54" x2="98" y2="54"/><line x1="86" y1="62" x2="98" y2="62"/><line x1="86" y1="70" x2="98" y2="70"/>',
+  ];
   function renderCases(t) {
-    var swatch = ["#2E2E2E", "#3a3a3a", "#262626", "#333", "#2a2a2a", "#383838"];
     document.getElementById("casesGrid").innerHTML = t("cases.items").map(function (c, i) {
+      var g = "hcg" + i;
       return '<div class="case reveal">' +
-        '<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><rect width="200" height="150" fill="' + swatch[i % 6] + '"/>' +
-        '<path d="M40 4 L74 62 L6 62 Z" fill="var(--accent)" opacity=".12"/><path d="M160 88 L194 146 L126 146 Z" fill="var(--accent)" opacity=".08"/>' +
-        '<path d="M100 50 l9 18 20 3 -14 14 3 20 -18 -9 -18 9 3 -20 -14 -14 20 -3Z" fill="var(--accent)" opacity=".35"/></svg>' +
+        '<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<defs><linearGradient id="' + g + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26262a"/><stop offset="1" stop-color="#171719"/></linearGradient>' +
+        '<radialGradient id="' + g + 'r" cx="0.82" cy="0.1" r="0.95"><stop offset="0" stop-color="var(--accent)" stop-opacity=".22"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></radialGradient></defs>' +
+        '<rect width="200" height="150" fill="url(#' + g + ')"/><rect width="200" height="150" fill="url(#' + g + 'r)"/>' +
+        '<g fill="none" stroke="var(--accent)" stroke-width="1" opacity=".14"><circle cx="152" cy="14" r="42"/><circle cx="152" cy="14" r="66"/></g>' +
+        '<g fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".9">' + CASE_ICONS[i % CASE_ICONS.length] + '</g></svg>' +
         '<div class="case__tag"><b>' + c.t + "</b><span>" + c.d + "</span></div></div>";
     }).join("");
   }
