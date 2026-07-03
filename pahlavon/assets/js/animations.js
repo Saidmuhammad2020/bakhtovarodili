@@ -299,15 +299,24 @@
     return "assets/img/shield-" + (theme === "light" ? "graphite" : "gold") + ".png";
   };
 
-  /* ===== Дрейфующий треугольный паттерн для hero (ТЗ §3.4, §8.2) ===== */
+  /* ===== Дрейфующее свечение частиц для hero (мягкая замена треугольного паттерна) ===== */
   window.HERO_PATTERN = function () {
     return `<svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 600" aria-hidden="true">
-      <defs><pattern id="tri" width="80" height="70" patternUnits="userSpaceOnUse" patternTransform="scale(1)">
-        <path d="M40 6 L74 64 L6 64 Z" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".18"/>
-        <path d="M40 64 L74 6 L6 6 Z" fill="none" stroke="var(--brand-cream)" stroke-width=".5" opacity=".06"/>
-      </pattern></defs>
-      <rect width="800" height="600" fill="url(#tri)">
-        <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="80 70" dur="22s" repeatCount="indefinite"/>
+      <defs>
+        <radialGradient id="dust-dot" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="var(--accent)" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+        </radialGradient>
+        <pattern id="dust" width="180" height="150" patternUnits="userSpaceOnUse">
+          <circle cx="24" cy="28" r="2.6" fill="url(#dust-dot)" opacity=".55"/>
+          <circle cx="120" cy="70" r="1.8" fill="url(#dust-dot)" opacity=".35"/>
+          <circle cx="70" cy="118" r="3.2" fill="url(#dust-dot)" opacity=".4"/>
+          <circle cx="158" cy="30" r="1.6" fill="url(#dust-dot)" opacity=".3"/>
+          <circle cx="10" cy="100" r="1.4" fill="url(#dust-dot)" opacity=".25"/>
+        </pattern>
+      </defs>
+      <rect width="800" height="600" fill="url(#dust)">
+        <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="180 150" dur="34s" repeatCount="indefinite"/>
       </rect>
     </svg>`;
   };
