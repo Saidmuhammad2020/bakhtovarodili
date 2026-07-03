@@ -454,8 +454,8 @@
     about: {
       meta: { title: "О компании — Pahlavon | Охранное агентство в Душанбе", description: "«Пахлавон» — охранное агентство полного цикла в Душанбе. История, миссия и принципы работы технологичной службы безопасности." },
       hero: { title: "О компании «Пахлавон»", subtitle: "Технологичная защита бизнеса и дома в Душанбе" },
-      story: { title: "Наша история", text: "«Пахлавон» начинался с простой идеи: безопасность должна быть результатом, а не формальностью. За более чем 12 лет работы на рынке Таджикистана агентство выросло из небольшой команды монтажников видеонаблюдения в охранное предприятие полного цикла — от аудита объекта до круглосуточного реагирования." },
-      mission: { title: "Миссия", text: "Делать защиту бизнеса и дома доступной, понятной и по-настоящему эффективной — с использованием технологии глубокого анализа и профессиональной физической охраны, без лишних обещаний." },
+      story: { title: "Наша история", text: "«Пахлавон» начинался с небольшой команды охранников. Более 8 лет назад мы начали с предоставления услуг физической охраны, а также пожарной безопасности и GPS-мониторинга транспорта. Устанавливать системы видеонаблюдения мы начали чуть более 2 лет назад — и сегодня «Пахлавон» это охранное предприятие полного цикла, объединяющее профессиональную охрану и современные технологии безопасности." },
+      mission: { title: "Миссия", text: "Наша официально объявленная миссия — обеспечение безопасности посредством технологий и профессионального сервиса." },
       values: {
         title: "Принципы работы",
         items: [
@@ -939,8 +939,8 @@
     about: {
       meta: { title: "Дар бораи ширкат — Pahlavon | Агентии муҳофизатӣ дар Душанбе", description: "«Паҳлавон» — агентии муҳофизатии давраи пурра дар Душанбе. Таърих, рисолат ва принсипҳои кории хадамоти бехатарии технологӣ." },
       hero: { title: "Дар бораи «Паҳлавон»", subtitle: "Ҳифзи технологии тиҷорат ва хона дар Душанбе" },
-      story: { title: "Таърихи мо", text: "«Паҳлавон» бо идеяи содда оғоз ёфт: бехатарӣ бояд натиҷа бошад, на расмият. Дар тӯли беш аз 12 соли фаъолият дар бозори Тоҷикистон агентӣ аз дастаи хурди насбкунандагони видеонозорат ба корхонаи муҳофизатии давраи пурра — аз аудити объект то вокуниши шабонарӯзӣ — табдил ёфт." },
-      mission: { title: "Рисолат", text: "Ҳифзи тиҷорат ва хонаро дастрас, фаҳмо ва воқеан самаранок гардонидан — бо истифода аз технологияи таҳлили амиқ ва муҳофизати касбии ҷисмонӣ, бидуни ваъдаҳои зиёдатӣ." },
+      story: { title: "Таърихи мо", text: "«Паҳлавон» бо дастаи хурди муҳофизон оғоз ёфт. Беш аз 8 сол пеш мо бо пешниҳоди хизматрасонии муҳофизати ҷисмонӣ, инчунин бехатарии сӯхтор ва мониторинги GPS-и нақлиёт оғоз намудем. Насби системаҳои видеонозоратро мо каме бештар аз 2 сол пеш оғоз кардем — ва имрӯз «Паҳлавон» корхонаи муҳофизатии давраи пурра аст, ки муҳофизати касбиро бо технологияҳои муосири бехатарӣ муттаҳид мекунад." },
+      mission: { title: "Рисолат", text: "Рисолати расман эълоншудаи мо — таъмини бехатарӣ тавассути технология ва хизматрасонии касбӣ." },
       values: {
         title: "Принсипҳои корӣ",
         items: [
@@ -1424,8 +1424,8 @@
     about: {
       meta: { title: "About Us — Pahlavon | Security Agency in Dushanbe", description: "Pahlavon is a full-cycle security agency in Dushanbe. Our history, mission and operating principles." },
       hero: { title: "About Pahlavon", subtitle: "Technology-driven protection for business and home in Dushanbe" },
-      story: { title: "Our story", text: "Pahlavon started with a simple idea: security should be a result, not a formality. Over more than 12 years in the Tajik market, the agency has grown from a small CCTV installation crew into a full-cycle security company — from site audit to 24/7 response." },
-      mission: { title: "Mission", text: "To make protecting business and home accessible, understandable and genuinely effective — using deep-analysis technology and professional physical guarding, without empty promises." },
+      story: { title: "Our story", text: "Pahlavon started with a small team of security guards. More than 8 years ago we began by providing physical guarding services, along with fire safety and GPS vehicle monitoring. We started installing video surveillance systems just over 2 years ago — and today Pahlavon is a full-cycle security company that combines professional guarding with modern security technology." },
+      mission: { title: "Mission", text: "Our officially stated mission is to ensure security through technology and professional service." },
       values: {
         title: "Operating principles",
         items: [

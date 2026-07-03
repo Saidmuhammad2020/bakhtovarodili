@@ -13,7 +13,7 @@
      язык-нейтральные строки; title/desc — локализованы (ru/tg/en). */
   window.DEFAULT_VACANCIES = [
     {
-      id: "v-guard", type: "shift", location: "Душанбе", salary: "3000–4500 TJS",
+      id: "v-guard", type: "shift", location: "Душанбе", salary: "1500–3000 TJS",
       title: { ru: "Охранник", tg: "Муҳофиз", en: "Security Guard" },
       desc: {
         ru: "Несение службы на объекте: контроль доступа, патрулирование, реагирование на инциденты. Требуется ответственность, дисциплина, физическая подготовка.",
@@ -37,15 +37,6 @@
         ru: "Монтаж и настройка видеонаблюдения, СКУД и пожарной сигнализации. Опыт работы с низковольтными системами приветствуется.",
         tg: "Насб ва танзими видеонозорат, СКУД ва сигнализатсияи сӯхтор. Таҷриба бо системаҳои пастшиддат афзалият дорад.",
         en: "Installation and configuration of CCTV, access control and fire alarms. Experience with low-voltage systems is a plus.",
-      },
-    },
-    {
-      id: "v-sales", type: "full", location: "Душанбе", salary: "",
-      title: { ru: "Менеджер по продажам", tg: "Менеҷери фурӯш", en: "Sales Manager" },
-      desc: {
-        ru: "Работа с входящими заявками, выезд на аудит, подготовка коммерческих предложений. Грамотная речь, ориентация на результат.",
-        tg: "Кор бо дархостҳои воридотӣ, баромад ба аудит, тайёр кардани пешниҳодҳои тиҷоратӣ. Нутқи дуруст, нигаронидашуда ба натиҷа.",
-        en: "Handling inbound requests, on-site audits and preparing commercial proposals. Articulate, results-oriented.",
       },
     },
   ];

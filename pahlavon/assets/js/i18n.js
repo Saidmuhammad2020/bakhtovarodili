@@ -7,8 +7,8 @@ window.LOCALES = {
   /* ---------------- РУССКИЙ (база) ---------------- */
   ru: {
     meta: {
-      title: "Пахлавон — охранное агентство в Душанбе | Видеонаблюдение, СКУД, охрана",
-      description: "Охранное агентство «Пахлавон» в Душанбе: видеонаблюдение с глубоким анализом, СКУД, пожарная сигнализация, пультовая и физическая охрана. Бесплатный аудит безопасности объекта.",
+      title: "Пахлавон — охранное агентство в Душанбе и Согдийской области | Видеонаблюдение, СКУД, охрана",
+      description: "Охранное агентство «Пахлавон» в Душанбе и Согдийской области: видеонаблюдение с глубоким анализом, СКУД, пожарная сигнализация, пультовая и физическая охрана. Бесплатный аудит безопасности объекта.",
     },
     nav: {
       services: "Услуги", about: "О нас", advantages: "Преимущества",
@@ -23,11 +23,11 @@ window.LOCALES = {
       langName: "Русский",
     },
     hero: {
-      label: "Охранное агентство · Душанбе",
+      label: "Охранное агентство · Душанбе и Согдийская область",
       title: 'Сосредоточьтесь на главном, <span class="gold">о безопасности позаботимся мы!</span>',
       slogan: "«За безопасность нужно платить. За её отсутствие — расплачиваться.»",
       stats: [
-        { num: "12+", cap: "лет на рынке" },
+        { num: "8+", cap: "лет на рынке" },
         { num: "850+", cap: "защищённых объектов" },
         { num: "24/7", cap: "мониторинг и реагирование" },
       ],
@@ -90,11 +90,11 @@ window.LOCALES = {
     about: {
       label: "О компании",
       title: "Технологичная защита, которой доверяют",
-      p1: "«Пахлавон» — охранное агентство полного цикла в Душанбе. Мы проектируем, внедряем и обслуживаем комплексные системы безопасности для бизнеса, частных домов и промышленных объектов.",
+      p1: "«Пахлавон» — охранное агентство полного цикла в Душанбе и Согдийской области (есть филиал). Мы проектируем, внедряем и обслуживаем комплексные системы безопасности для бизнеса, частных домов и промышленных объектов.",
       p2: "Наш подход — защита как услуга: цифры, факты и технология глубокого анализа вместо лишних обещаний. Мы отвечаем за результат на каждом объекте.",
       counters: [
         { num: "850+", cap: "объектов под защитой" },
-        { num: "12+", cap: "лет опыта" },
+        { num: "8+", cap: "лет опыта" },
         { num: "60+", cap: "специалистов" },
       ],
     },
@@ -213,13 +213,13 @@ window.LOCALES = {
       },
       info: {
         phoneLabel: "Телефон", emailLabel: "E-mail",
-        addressLabel: "Адрес", address: "г. Душанбе, Таджикистан",
+        addressLabel: "Адрес", address: "г. Душанбе, Таджикистан (филиал — Согдийская область)",
         hoursLabel: "Время работы", hours: "Пн–Сб: 09:00–18:00 · Пульт: 24/7",
         telegram: "Telegram", whatsapp: "WhatsApp",
       },
     },
     footer: {
-      tagline: "Охранное агентство «Пахлавон». Технологичная защита бизнеса и дома в Душанбе — видеонаблюдение, СКУД, охрана и реагирование 24/7.",
+      tagline: "Охранное агентство «Пахлавон». Технологичная защита бизнеса и дома в Душанбе и Согдийской области — видеонаблюдение, СКУД, охрана и реагирование 24/7.",
       navTitle: "Навигация", contactsTitle: "Контакты",
       rights: "Все права защищены.",
       privacy: "Политика конфиденциальности",
@@ -230,8 +230,8 @@ window.LOCALES = {
   /* ---------------- ТАДЖИКСКИЙ ---------------- */
   tg: {
     meta: {
-      title: "Паҳлавон — агентии муҳофизатӣ дар Душанбе | Видеонозорат, СКУД, муҳофизат",
-      description: "Агентии муҳофизатии «Паҳлавон» дар Душанбе: видеонозорат бо таҳлили амиқ, СКУД, сигнализатсияи сӯхтор, муҳофизати пулта ва ҷисмонӣ. Аудити ройгони бехатарии объект.",
+      title: "Паҳлавон — агентии муҳофизатӣ дар Душанбе ва вилояти Суғд | Видеонозорат, СКУД, муҳофизат",
+      description: "Агентии муҳофизатии «Паҳлавон» дар Душанбе ва вилояти Суғд: видеонозорат бо таҳлили амиқ, СКУД, сигнализатсияи сӯхтор, муҳофизати пулта ва ҷисмонӣ. Аудити ройгони бехатарии объект.",
     },
     nav: {
       services: "Хидматҳо", about: "Дар бораи мо", advantages: "Бартариҳо",
@@ -246,11 +246,11 @@ window.LOCALES = {
       langName: "Тоҷикӣ",
     },
     hero: {
-      label: "Агентии муҳофизатӣ · Душанбе",
+      label: "Агентии муҳофизатӣ · Душанбе ва вилояти Суғд",
       title: 'Ба корҳои муҳим машғул шавед, <span class="gold">бехатариро мо таъмин мекунем!</span>',
       slogan: "«Барои бехатарӣ бояд пардохт. Барои набудани он — ҷазо кашид.»",
       stats: [
-        { num: "12+", cap: "сол дар бозор" },
+        { num: "8+", cap: "сол дар бозор" },
         { num: "850+", cap: "объекти ҳифзшуда" },
         { num: "24/7", cap: "назорат ва вокуниш" },
       ],
@@ -313,11 +313,11 @@ window.LOCALES = {
     about: {
       label: "Дар бораи ширкат",
       title: "Ҳифзи технологӣ, ки ба он эътимод доранд",
-      p1: "«Паҳлавон» — агентии муҳофизатии давраи пурра дар Душанбе. Мо системаҳои комплексии бехатариро барои тиҷорат, хонаҳои хусусӣ ва объектҳои саноатӣ тарҳрезӣ, ҷорӣ ва хизматрасонӣ мекунем.",
+      p1: "«Паҳлавон» — агентии муҳофизатии давраи пурра дар Душанбе ва вилояти Суғд (филиал дорад). Мо системаҳои комплексии бехатариро барои тиҷорат, хонаҳои хусусӣ ва объектҳои саноатӣ тарҳрезӣ, ҷорӣ ва хизматрасонӣ мекунем.",
       p2: "Равиши мо — ҳифз ҳамчун хидмат: рақамҳо, далелҳо ва технологияи таҳлили амиқ ба ҷои ваъдаҳои зиёдатӣ. Мо барои натиҷа дар ҳар объект масъулем.",
       counters: [
         { num: "850+", cap: "объект таҳти ҳифз" },
-        { num: "12+", cap: "соли таҷриба" },
+        { num: "8+", cap: "соли таҷриба" },
         { num: "60+", cap: "мутахассис" },
       ],
     },
@@ -436,13 +436,13 @@ window.LOCALES = {
       },
       info: {
         phoneLabel: "Телефон", emailLabel: "E-mail",
-        addressLabel: "Суроға", address: "ш. Душанбе, Тоҷикистон",
+        addressLabel: "Суроға", address: "ш. Душанбе, Тоҷикистон (филиал — вилояти Суғд)",
         hoursLabel: "Вақти корӣ", hours: "Дш–Шб: 09:00–18:00 · Пулт: 24/7",
         telegram: "Telegram", whatsapp: "WhatsApp",
       },
     },
     footer: {
-      tagline: "Агентии муҳофизатии «Паҳлавон». Ҳифзи технологии тиҷорат ва хона дар Душанбе — видеонозорат, СКУД, муҳофизат ва вокуниши 24/7.",
+      tagline: "Агентии муҳофизатии «Паҳлавон». Ҳифзи технологии тиҷорат ва хона дар Душанбе ва вилояти Суғд — видеонозорат, СКУД, муҳофизат ва вокуниши 24/7.",
       navTitle: "Паймоиш", contactsTitle: "Тамос",
       rights: "Ҳамаи ҳуқуқҳо ҳифз шудаанд.",
       privacy: "Сиёсати махфият",
@@ -453,8 +453,8 @@ window.LOCALES = {
   /* ---------------- ENGLISH ---------------- */
   en: {
     meta: {
-      title: "Pahlavon — Security Agency in Dushanbe | CCTV, Access Control, Guarding",
-      description: "Pahlavon Security Agency in Dushanbe: deep-analysis CCTV, access control, fire alarms, monitored and physical guarding. Get a free on-site security audit.",
+      title: "Pahlavon — Security Agency in Dushanbe & Sughd Region | CCTV, Access Control, Guarding",
+      description: "Pahlavon Security Agency in Dushanbe and the Sughd region: deep-analysis CCTV, access control, fire alarms, monitored and physical guarding. Get a free on-site security audit.",
     },
     nav: {
       services: "Services", about: "About", advantages: "Advantages",
@@ -469,11 +469,11 @@ window.LOCALES = {
       langName: "English",
     },
     hero: {
-      label: "Security Agency · Dushanbe",
+      label: "Security Agency · Dushanbe & Sughd Region",
       title: 'Focus on what matters — <span class="gold">we\'ll take care of security!</span>',
       slogan: "“You pay for security. You pay far more for the lack of it.”",
       stats: [
-        { num: "12+", cap: "years on the market" },
+        { num: "8+", cap: "years on the market" },
         { num: "850+", cap: "protected sites" },
         { num: "24/7", cap: "monitoring & response" },
       ],
@@ -536,11 +536,11 @@ window.LOCALES = {
     about: {
       label: "About us",
       title: "Technology-driven protection you can trust",
-      p1: "Pahlavon is a full-cycle security agency in Dushanbe. We design, deploy and maintain comprehensive security systems for businesses, private homes and industrial sites.",
+      p1: "Pahlavon is a full-cycle security agency in Dushanbe and the Sughd region (with a branch office there). We design, deploy and maintain comprehensive security systems for businesses, private homes and industrial sites.",
       p2: "Our approach is protection as a service: figures, facts and deep-analysis technology instead of empty promises. We own the result at every site.",
       counters: [
         { num: "850+", cap: "sites protected" },
-        { num: "12+", cap: "years of experience" },
+        { num: "8+", cap: "years of experience" },
         { num: "60+", cap: "specialists" },
       ],
     },
@@ -659,13 +659,13 @@ window.LOCALES = {
       },
       info: {
         phoneLabel: "Phone", emailLabel: "E-mail",
-        addressLabel: "Address", address: "Dushanbe, Tajikistan",
+        addressLabel: "Address", address: "Dushanbe, Tajikistan (branch office in the Sughd region)",
         hoursLabel: "Working hours", hours: "Mon–Sat: 09:00–18:00 · Control room: 24/7",
         telegram: "Telegram", whatsapp: "WhatsApp",
       },
     },
     footer: {
-      tagline: "Pahlavon Security Agency. Technology-driven protection for business and home in Dushanbe — CCTV, access control, guarding and 24/7 response.",
+      tagline: "Pahlavon Security Agency. Technology-driven protection for business and home in Dushanbe and the Sughd region — CCTV, access control, guarding and 24/7 response.",
       navTitle: "Navigation", contactsTitle: "Contact",
       rights: "All rights reserved.",
       privacy: "Privacy policy",
