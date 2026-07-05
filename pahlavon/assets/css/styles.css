@@ -358,8 +358,10 @@ h3 { font-weight: 700; }
 }
 
 /* Логотип — официальный растровый логотип, переключается по теме */
-.logo-link { display: flex; align-items: center; height: 32px; }
-.logo-img { height: 100%; width: auto; display: none; }
+.logo-link { display: flex; align-items: center; height: 32px; min-width: 0; }
+/* max-width + object-fit: на тесной шапке телефона логотип плавно
+   масштабируется вниз, а не сжимается в 0 и не вылезает за экран */
+.logo-img { height: 100%; width: auto; max-width: 100%; object-fit: contain; object-position: left center; display: none; }
 [data-theme="dark"] .logo-img--dark { display: block; }
 [data-theme="light"] .logo-img--light { display: block; }
 .logo-link--lg { height: 46px; }
@@ -981,6 +983,8 @@ h3 { font-weight: 700; }
   /* Тач-таргеты ≥44×44 на телефонах (на десктопе курсор точнее — оставляем компактнее) */
   .btn--sm { min-height: 44px; padding-block: .7rem; }
   .lang button { min-height: 44px; padding-inline: .8rem; }
+  /* Логотип: зона нажатия 44px без увеличения визуального размера */
+  .logo-link { padding-block: 6px; margin-block: -6px; }
 }
 
 @media (max-width: 560px) {
@@ -1000,12 +1004,31 @@ h3 { font-weight: 700; }
   }
 }
 
-/* ---- Самые маленькие экраны (<360px, напр. iPhone SE 1-го поколения):
-   убираем вторичную CTA-кнопку из шапки — в hero и FAB уже есть призывы
-   к действию, а шапке с логотипом+языками+темой+бургером на 320px иначе
-   физически не хватает места (проверено рендером на 320/330/340px). ---- */
-@media (max-width: 359px) {
+/* ---- Телефоны (≤639px): в шапке остаются логотип + языки + бургер.
+   CTA-кнопка и переключатель темы физически не помещаются (замерено:
+   языки 132px + тема 44px + CTA 186px + бургер 44px ≈ 439px > экрана) —
+   CTA дублируется в hero/FAB/меню, тема — кнопкой в мобильном меню. ---- */
+@media (max-width: 639px) {
   .header__tools .btn--primary { display: none; }
+  .header__tools .theme-toggle { display: none; }
+}
+/* Кнопка темы внутри мобильного меню — видна только на телефонах */
+.theme-toggle--menu { display: none; margin: 1.6rem auto 0; }
+@media (max-width: 639px) {
+  .mobile-menu .theme-toggle--menu { display: grid; }
+}
+/* Совсем узкие экраны: компактнее языковые кнопки */
+@media (max-width: 419px) {
+  .lang button { padding-inline: .55rem; }
+}
+
+/* ---- Телефоны: заголовки чуть меньше, длинные русские слова
+   («Сосредоточьтесь», «видеонаблюдение») переносятся по слогам с
+   дефисом, а не рвутся посреди слова голым break-word ---- */
+@media (max-width: 479px) {
+  .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.4rem); }
+  .page-hero h1 { font-size: clamp(1.7rem, 7.4vw, 2.1rem); }
+  h1, h2, h3 { hyphens: auto; -webkit-hyphens: auto; }
 }
 
 /* ---- lg/xl (≥1536px, широкие мониторы): чуть шире контейнер и отступы ---- */

@@ -110,16 +110,16 @@ window.Common = (function () {
   }
 
   /* ---------- Тема ---------- */
+  function toggleTheme() {
+    var cur = document.documentElement.getAttribute("data-theme");
+    var next = cur === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("pahlavon-theme", next); } catch (e) {}
+    setMeta("theme-color", next === "dark" ? "#1A1A1A" : "#F7F3E8");
+  }
   function initTheme() {
     var btn = document.getElementById("themeToggle");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var cur = document.documentElement.getAttribute("data-theme");
-      var next = cur === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      try { localStorage.setItem("pahlavon-theme", next); } catch (e) {}
-      setMeta("theme-color", next === "dark" ? "#1A1A1A" : "#F7F3E8");
-    });
+    if (btn) btn.addEventListener("click", toggleTheme);
   }
 
   /* ---------- Шапка: скролл + бургер + to-top ---------- */
@@ -148,6 +148,20 @@ window.Common = (function () {
     if (burger) burger.addEventListener("click", function () { setMenu(true); });
     if (menuClose) menuClose.addEventListener("click", function () { setMenu(false); });
     if (menu) menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+
+    /* На телефонах (≤639px) переключатель темы в шапке скрыт — места
+       хватает только логотипу, языкам и бургеру. Дублируем тему кнопкой
+       внутри мобильного меню (показывается тем же брейкпоинтом в CSS). */
+    if (menu && !menu.querySelector(".theme-toggle--menu")) {
+      var tbtn = document.createElement("button");
+      tbtn.className = "theme-toggle theme-toggle--menu";
+      tbtn.setAttribute("aria-label", "Сменить тему / Change theme");
+      tbtn.innerHTML =
+        '<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+        '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>';
+      tbtn.addEventListener("click", toggleTheme);
+      menu.appendChild(tbtn);
+    }
   }
 
   /* ---------- Scroll-reveal + запуск SVG-анимаций услуг ---------- */
