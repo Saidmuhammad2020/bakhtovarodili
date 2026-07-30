@@ -412,6 +412,7 @@
     $("setPhone").value = s.phone; $("setPhoneDisplay").value = s.phoneDisplay;
     $("setEmail").value = s.email; $("setTelegram").value = s.telegram;
     $("setWhatsapp").value = s.whatsapp; $("setInstagram").value = s.instagram;
+    $("setTelegramHr").value = s.telegramHr;
     loadApiCfg();
   }
   $("settingsForm").addEventListener("submit", function (e) {
@@ -423,6 +424,7 @@
       telegram: $("setTelegram").value.trim().replace(/^@/, ""),
       whatsapp: $("setWhatsapp").value.replace(/\D/g, ""),
       instagram: $("setInstagram").value.trim().replace(/^@/, ""),
+      telegramHr: $("setTelegramHr").value.trim().replace(/^@/, ""),
     };
     window.SettingsStore.save(s);
     if (API()) window.PahlavonAPI.putSettings(s).then(function () { alert("Настройки сохранены на сервере."); }).catch(apiErr);

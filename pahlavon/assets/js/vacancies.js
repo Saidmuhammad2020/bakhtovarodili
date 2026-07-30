@@ -49,6 +49,28 @@
     try { localStorage.setItem(key, JSON.stringify(val)); return true; } catch (e) { return false; }
   }
 
+  /* --- Миграция закешированных вакансий ---------------------------------
+     Браузер, где вакансии когда-то сохраняли из админки, продолжает
+     отдавать старую копию: с суммами зарплат и закрытой вакансией
+     «Менеджер по продажам». Правим только эти два поля у наших штатных
+     вакансий — вакансии, добавленные заказчиком вручную, не трогаем. */
+  var MIGRATION_KEY = "pahlavon-vacancies-migrated";
+  var RETIRED_IDS = ["v-sales"];
+  function migrate() {
+    try {
+      if (localStorage.getItem(MIGRATION_KEY)) return;
+      var saved = localStorage.getItem(VAC_KEY);
+      if (saved !== null) {
+        var seeded = window.DEFAULT_VACANCIES.map(function (v) { return v.id; });
+        var list = read(VAC_KEY, []).filter(function (v) { return RETIRED_IDS.indexOf(v.id) === -1; });
+        list.forEach(function (v) { if (seeded.indexOf(v.id) !== -1) v.salary = ""; });
+        write(VAC_KEY, list);
+      }
+      localStorage.setItem(MIGRATION_KEY, "1");
+    } catch (e) {}
+  }
+  migrate();
+
   window.VacancyStore = {
     /* Вакансии: админ-сохранённые или дефолтные */
     all: function () {

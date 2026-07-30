@@ -67,6 +67,9 @@
     phoneDisplay: "(+992) 98-111-3363",
     email: "sales@pahlavon.tj",
     telegram: "pahlavonagency",
+    /* Отдельный Telegram для откликов на вакансии (HR) — на него ведёт
+       кнопка «Откликнуться» в разделе «Карьера». */
+    telegramHr: "malikasvanova",
     whatsapp: "992981113363",
     instagram: "pahlavon_security",
   };

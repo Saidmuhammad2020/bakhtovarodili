@@ -99,7 +99,7 @@
       <div class="container">
         <div class="vacancy-grid" id="careersGrid"></div>
         <div class="careers-cta reveal">
-          <button class="btn btn--ghost" id="sendResumeBtn" data-i18n="careers.sendResume"></button>
+          <a class="btn btn--ghost" id="sendResumeBtn" href="https://t.me/malikasvanova" target="_blank" rel="noopener" data-i18n="careers.sendResume"></a>
         </div>
       </div>
     </section>
@@ -170,48 +170,6 @@
     <a href="https://wa.me/992981113363" target="_blank" rel="noopener" aria-label="WhatsApp" data-contact="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.2-4.3-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
   </div>
   <button class="to-top" id="toTop" aria-label="Наверх"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-
-  <!-- Модальное окно отклика на вакансию -->
-  <div class="modal" id="applyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__panel">
-      <button class="icon-btn modal__close" data-close aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      <h3 id="applyTitle" data-i18n="careers.apply.title"></h3>
-      <form id="applyForm" novalidate>
-        <div class="field">
-          <label for="aPosition" data-i18n="careers.apply.position"></label>
-          <input type="text" id="aPosition" name="position" readonly>
-        </div>
-        <div class="field">
-          <label for="aName" data-i18n="careers.apply.name"></label>
-          <input type="text" id="aName" name="name" autocomplete="name" required>
-          <span class="field__err" data-i18n="careers.apply.errName"></span>
-        </div>
-        <div class="field">
-          <label for="aPhone" data-i18n="careers.apply.phone"></label>
-          <input type="tel" id="aPhone" name="phone" inputmode="tel" placeholder="+992 ___ __ __ __" required>
-          <span class="field__err" data-i18n="careers.apply.errPhone"></span>
-        </div>
-        <div class="field">
-          <label for="aMessage" data-i18n="careers.apply.message"></label>
-          <textarea id="aMessage" name="message"></textarea>
-        </div>
-        <div class="field">
-          <label class="consent">
-            <input type="checkbox" id="aConsent" name="consent" required>
-            <span><span data-i18n="careers.apply.consent"></span> (<a href="privacy.html" target="_blank" data-i18n="footer.privacy"></a>)</span>
-          </label>
-          <span class="field__err" data-i18n="careers.apply.errConsent"></span>
-        </div>
-        <button type="submit" class="btn btn--primary btn--block" data-i18n="careers.apply.submit"></button>
-      </form>
-      <div class="form-success" id="applySuccess">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-        <h3 data-i18n="careers.apply.successTitle"></h3>
-        <p data-i18n="careers.apply.successText"></p>
-      </div>
-    </div>
-  </div>
 
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/i18n-pages.js"></script>
